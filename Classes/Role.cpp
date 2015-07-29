@@ -82,14 +82,18 @@ void Role::run()
             break;
         case LEFT:
             if (m_mapLayer->getTileGIDAt(Vec2((x - 1 - width / 2) / width, h - y / height)) == 1) {
-                m_sprCurrntDirection->setPositionY(m_sprCurrntDirection->getPositionX() - 1);
+                m_sprCurrntDirection->setPositionX(m_sprCurrntDirection->getPositionX() - 1);
             } else {
                 setCurrntDirection('w');
             }
             break;
         case RIGHT:
+            int x1 = m_sprCurrntDirection->getPositionX();
+            int x2 = (x + 1 + width / 2) / width;
+            int x3 = h - y / height;
+            int x4 = m_mapLayer->getTileGIDAt(Vec2((x + 1 + width / 2) / width, h - y / height));
             if (m_mapLayer->getTileGIDAt(Vec2((x + 1 + width / 2) / width, h - y / height)) == 1) {
-                m_sprCurrntDirection->setPositionY(m_sprCurrntDirection->getPositionX() + 1);
+                m_sprCurrntDirection->setPositionX(m_sprCurrntDirection->getPositionX() + 1);
             } else {
                 setCurrntDirection('s');
             }
@@ -101,7 +105,7 @@ void Role::setStartPosition(cocos2d::Vec2 vPos)
 {
     vPos = vPos + m_vMapPos;
     m_sprCurrntDirection->setPosition(vPos);
-    //  addChild(m_sprCurrntDirection, 100);
+    addChild(m_sprCurrntDirection, 100);
     m_sprCurrntDirection->setScale(3.0f);
     m_sprCurrntDirection->setAnchorPoint(Point(0.5, 0.08));
 }

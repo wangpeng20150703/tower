@@ -59,7 +59,7 @@ bool Game::init()
     m_role = Role::create();
     addChild(m_role, 2);
     m_role->getMapFileName("map1.tmx");
-    m_role->setCurrntDirection('w');
+    m_role->setCurrntDirection('d');
     m_role->getMapPos(m_map->getMapPos());
     m_role->setStartPosition(Vec2(96.0f, 410.0f));  //这里的位置应该为在地图上的相对位置，即忽略地图相对屏幕的移动
 
