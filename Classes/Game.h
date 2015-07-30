@@ -18,8 +18,12 @@ class Game : public cocos2d::Layer
 private:
     Map1* m_map;
     Role* m_role;
-
+    float m_fIntertal;
+    int m_iCount;
+    std::vector<Role*> m_vRole;
 public:
+    void readInitFile();
+    void makeRole(float dt);
     void update(float delta);
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();

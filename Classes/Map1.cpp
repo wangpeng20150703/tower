@@ -36,9 +36,15 @@ void Map1::loadMapFile(std::string fileName)
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    auto map = cocos2d::experimental::TMXTiledMap::create(fileName);
-    float mapPositionX=visibleSize.width-(map->getTileSize()).width*map->getMapSize().width;
-    map->setPositionX(mapPositionX/2);
-    addChild(map, 0, 0);
-    m_vMapPos=map->getPosition();
+    m_map = cocos2d::experimental::TMXTiledMap::create(fileName);
+    float mapPositionX=visibleSize.width-(m_map->getTileSize()).width*m_map->getMapSize().width;
+    m_map->setPositionX(mapPositionX/2);
+    addChild(m_map, 0, 0);
+    m_vMapPos=m_map->getPosition();
+}
+
+
+cocos2d::experimental::TMXTiledMap * Map1::getMap()
+{
+    return m_map;
 }

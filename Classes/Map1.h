@@ -16,7 +16,9 @@ class Map1 : public cocos2d::Layer
 {
 private:
     cocos2d::Vec2 m_vMapPos;
+    cocos2d::experimental::TMXTiledMap * m_map;
 public:
+    cocos2d::experimental::TMXTiledMap * getMap();
     void loadMapFile(std::string fileName);
     cocos2d::Vec2 getMapPos();
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone

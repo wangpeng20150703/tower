@@ -13,33 +13,33 @@
 #include "cocos2d.h"
 #include "Map1.h"
 
-enum dir
-{
-    UP,RIGHT,DOWN,LEFT
-};
+enum dir { DOWN, LEFT, RIGHT, UP };
 
-
-class Role: public cocos2d::Layer
+class Role : public cocos2d::Node
 {
 private:
-    cocos2d::Sprite* m_sprDirection[4];
-    cocos2d::Sequence* m_seqDirecrion[4];
     cocos2d::Sprite* m_sprCurrntDirection;
     dir m_dirCurrntDirection;
-    cocos2d::Vec2 m_vMapPos;//获得同一场景下的地图的位置
-    cocos2d::experimental::TMXTiledMap * m_map;//角色需要获得地图的信息
-    cocos2d::experimental::TMXLayer* m_mapLayer;
+    cocos2d::Vec2 m_vMapPos;  //获得同一场景下的地图的位置
+    int m_iMapHeight;
+    float m_fTileWidth;
+    float m_fTileHeight;
+    int** m_ppMapData;
+    
 public:
+    void setMap(cocos2d::experimental::TMXTiledMap * map);
     void getMapFileName(std::string mapFileName);
     void getMapPos(cocos2d::Vec2 pos);
-    void setAction();
+    void setAction(cocos2d::Vec2 v);
     void run();
     void setCurrntDirection(char dir);
     cocos2d::Vec2 getPosition();
+    void setPosition(cocos2d::Vec2 pos);
+    int getMapDate(cocos2d::Vec2 v);
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
     void setStartPosition(cocos2d::Vec2 vPos);
-    
+
     // implement the "static create()" method manually
     CREATE_FUNC(Role);
 };

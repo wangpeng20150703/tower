@@ -56,14 +56,9 @@ bool Game::init()
     m_map->loadMapFile("map1.tmx");
     addChild(m_map, 1);
 
-    m_role = Role::create();
-    addChild(m_role, 2);
-    m_role->getMapFileName("map1.tmx");
-    m_role->setCurrntDirection('d');
-    m_role->getMapPos(m_map->getMapPos());
-    m_role->setStartPosition(Vec2(96.0f, 410.0f));  //这里的位置应该为在地图上的相对位置，即忽略地图相对屏幕的移动
-
     scheduleUpdate();
+
+    readInitFile();
     return true;
 }
 
@@ -78,5 +73,51 @@ void Game::menuCloseCallback(Ref* pSender)
 
 void Game::update(float delta)
 {
-     m_role->run();
+    if (m_vRole.empty()) {
+        return;
+    }
+    for (int i = 0; i < m_vRole.size(); i++) {
+        m_vRole[i]->run();
+    }
+}
+
+void Game::makeRole(float dt)
+{
+    auto role = Role::create();
+    addChild(role, 2);
+    role->setMap(m_map->getMap());
+    // m_role->getMapFileName("map1.tmx");
+    role->setCurrntDirection('d');
+    role->getMapPos(m_map->getMapPos());
+    role->setStartPosition(Vec2(96.0f, 410.0f));  //这里的位置应该为在地图上的相对位置，即忽略地图相对屏幕的移动
+    m_vRole.push_back(role);
+}
+
+void Game::readInitFile()
+{
+    std::string path = FileUtils::getInstance()->fullPathForFilename("role.txt");
+
+//    float x;
+//    int y;
+//    x=3;
+//    y=2;
+//    FILE* pf1 = fopen(path.c_str(), "wb");
+//    if (pf1 == NULL) {
+//        CCLOG("open file error.");
+//    }
+//    fwrite(&x, sizeof(float), 1, pf1);
+//    fwrite(&y, sizeof(int), 1, pf1);
+//    fclose(pf1);
+//
+//    FILE* pf = fopen(path.c_str(), "rb");
+//    if (pf == NULL) {
+//        CCLOG("open file error.");
+//    }
+//     fread(&m_fIntertal, sizeof(float), 1, pf);
+//         fread(&m_iCount, sizeof(int), 1, pf);
+//    fclose(pf);
+
+    m_fIntertal=3;
+    m_iCount=2;
+    schedule(schedule_selector(Game::makeRole), m_fIntertal, m_iCount - 1, 0);
 }
