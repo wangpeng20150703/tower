@@ -1,0 +1,299 @@
+obj/local/armeabi/objs-debug/cocos_extension_static/Particle3D/PU/CCPUScriptCompiler.o: \
+ /Users/wp/tower/proj.android/../cocos2d/extensions/Particle3D/PU/CCPUScriptCompiler.cpp \
+ /Users/wp/tower/proj.android/../cocos2d/extensions/Particle3D/PU/CCPUScriptCompiler.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCRef.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCPlatformMacros.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/ccConfig.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCPlatformConfig.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCPlatformDefine.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./platform/android/CCPlatformDefine-android.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/android/log.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUScriptParser.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/iostream \
+ /Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/list \
+ /Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/map \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUScriptLexer.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/vector \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUTranslateManager.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUParticleSystem3DTranslator.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUParticleSystem3D.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./2d/CCNode.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/ccMacros.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCConsole.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/sys/select.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/thread \
+ /Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/mutex \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCStdC.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./platform/android/CCStdC-android.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/math.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/stdlib.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/alloca.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/strings.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/memory.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/cassert \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/ccRandom.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/random \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCVector.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/algorithm \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCProtocols.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/ccTypes.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/CCGeometry.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/CCMath.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec2.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/CCMathBase.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec2.inl \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec2.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec3.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec3.inl \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec3.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Mat4.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec4.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec4.inl \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Mat4.inl \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec4.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Mat4.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Quaternion.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/Quaternion.inl \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCGL.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./platform/android/CCGL-android.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/GLES2/gl2platform.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/KHR/khrplatform.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/GLES2/gl2.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/GLES2/gl2ext.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./renderer/CCTexture2D.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCScriptSupport.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCCommon.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCTouch.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCEventTouch.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCEvent.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCEventKeyboard.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./math/CCAffineTransform.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/CCParticleSystem3D.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUScriptTranslator.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUScriptCompiler.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUTechniqueTranslator.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPURendererTranslator.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPURender.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/CCParticle3DRender.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUBeamRender.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUListener.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUBillboardChain.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPURibbonTrailRender.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPURibbonTrail.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUMaterialTranslator.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUEmitterTranslator.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUEmitter.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/CCParticle3DEmitter.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUDynamicAttribute.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUSimpleSpline.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUAffectorTranslator.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUAffector.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/CCParticle3DAffector.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUEventHandlerTranslator.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUEventHandler.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUObserverTranslator.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUObserver.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUBehaviourTranslator.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUBehaviour.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCFileUtils.h \
+ /Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/unordered_map \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCValue.h \
+ /Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCData.h
+
+/Users/wp/tower/proj.android/../cocos2d/extensions/Particle3D/PU/CCPUScriptCompiler.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCRef.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCPlatformMacros.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/ccConfig.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCPlatformConfig.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCPlatformDefine.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./platform/android/CCPlatformDefine-android.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/android/log.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUScriptParser.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/iostream:
+
+/Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/list:
+
+/Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/map:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUScriptLexer.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/vector:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUTranslateManager.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUParticleSystem3DTranslator.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUParticleSystem3D.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./2d/CCNode.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/ccMacros.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCConsole.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/sys/select.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/thread:
+
+/Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/mutex:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCStdC.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./platform/android/CCStdC-android.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/math.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/stdlib.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/alloca.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/strings.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/memory.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/cassert:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/ccRandom.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/random:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCVector.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/algorithm:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCProtocols.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/ccTypes.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/CCGeometry.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/CCMath.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec2.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/CCMathBase.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec2.inl:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec2.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec3.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec3.inl:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec3.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Mat4.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec4.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec4.inl:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Mat4.inl:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Vec4.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Mat4.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Quaternion.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/Quaternion.inl:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCGL.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./platform/android/CCGL-android.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/GLES2/gl2platform.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/KHR/khrplatform.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/GLES2/gl2.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/platforms/android-18/arch-arm/usr/include/GLES2/gl2ext.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./renderer/CCTexture2D.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCScriptSupport.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCCommon.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCTouch.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCEventTouch.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCEvent.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCEventKeyboard.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./math/CCAffineTransform.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/CCParticleSystem3D.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUScriptTranslator.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUScriptCompiler.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUTechniqueTranslator.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPURendererTranslator.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPURender.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/CCParticle3DRender.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUBeamRender.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUListener.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUBillboardChain.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPURibbonTrailRender.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPURibbonTrail.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUMaterialTranslator.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUEmitterTranslator.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUEmitter.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/CCParticle3DEmitter.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUDynamicAttribute.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUSimpleSpline.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUAffectorTranslator.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUAffector.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/CCParticle3DAffector.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUEventHandlerTranslator.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUEventHandler.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUObserverTranslator.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUObserver.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUBehaviourTranslator.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./../extensions/Particle3D/PU/CCPUBehaviour.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./platform/CCFileUtils.h:
+
+/Users/wp/Documents/develop/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.9/include/unordered_map:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCValue.h:
+
+/Users/wp/tower/proj.android/../cocos2d/cocos/./base/CCData.h:

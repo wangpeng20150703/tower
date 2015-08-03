@@ -134,7 +134,6 @@ void Role::setStartPosition(cocos2d::Vec2 vPos)
 {
     vPos = vPos + m_vMapPos;
     m_sprCurrntDirection->setPosition(vPos);
-    //    addChild(m_sprCurrntDirection, 100);
 }
 
 //返回结果为地图相对位置

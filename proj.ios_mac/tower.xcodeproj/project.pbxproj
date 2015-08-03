@@ -65,13 +65,19 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		F74E37521B6B393100946C60 /* TowerMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F74E37501B6B393100946C60 /* TowerMenu.cpp */; };
 		F7C648171B68676F00FC54AF /* tile.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C648161B68676F00FC54AF /* tile.png */; };
 		F7C648191B68677600FC54AF /* map1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F7C648181B68677600FC54AF /* map1.tmx */; };
 		F7C6481F1B68692000FC54AF /* Map1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C6481D1B68692000FC54AF /* Map1.cpp */; };
 		F7C648251B68730700FC54AF /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C648231B68730700FC54AF /* Game.cpp */; };
 		F7C648281B68791D00FC54AF /* Role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C648261B68791D00FC54AF /* Role.cpp */; };
 		F7C6482A1B687E2B00FC54AF /* role.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C648291B687E2B00FC54AF /* role.png */; };
-		F7CE4B911B6A2E9D006E3E3C /* role.txt in Resources */ = {isa = PBXBuildFile; fileRef = F7CE4B901B6A2E9D006E3E3C /* role.txt */; };
+		F7CE4B911B6A2E9D006E3E3C /* role1.txt in Resources */ = {isa = PBXBuildFile; fileRef = F7CE4B901B6A2E9D006E3E3C /* role1.txt */; };
+		F7D02A3D1B6B194A003445A9 /* tower1.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D02A3B1B6B194A003445A9 /* tower1.png */; };
+		F7D02A3E1B6B194A003445A9 /* tower2.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D02A3C1B6B194A003445A9 /* tower2.png */; };
+		F7D02A441B6B19A9003445A9 /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D02A421B6B19A9003445A9 /* Tower.cpp */; };
+		F7D02A471B6B21B7003445A9 /* Tower1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D02A451B6B21B7003445A9 /* Tower1.cpp */; };
+		F7D02A4A1B6B2345003445A9 /* Tower2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D02A481B6B2345003445A9 /* Tower2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +168,8 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		F74E37501B6B393100946C60 /* TowerMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerMenu.cpp; sourceTree = "<group>"; };
+		F74E37511B6B393100946C60 /* TowerMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMenu.h; sourceTree = "<group>"; };
 		F7C648161B68676F00FC54AF /* tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile.png; sourceTree = "<group>"; };
 		F7C648181B68677600FC54AF /* map1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map1.tmx; sourceTree = "<group>"; };
 		F7C6481D1B68692000FC54AF /* Map1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Map1.cpp; sourceTree = "<group>"; };
@@ -171,7 +179,15 @@
 		F7C648261B68791D00FC54AF /* Role.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Role.cpp; sourceTree = "<group>"; };
 		F7C648271B68791D00FC54AF /* Role.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Role.h; sourceTree = "<group>"; };
 		F7C648291B687E2B00FC54AF /* role.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = role.png; sourceTree = "<group>"; };
-		F7CE4B901B6A2E9D006E3E3C /* role.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = role.txt; sourceTree = "<group>"; };
+		F7CE4B901B6A2E9D006E3E3C /* role1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = role1.txt; sourceTree = "<group>"; };
+		F7D02A3B1B6B194A003445A9 /* tower1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower1.png; sourceTree = "<group>"; };
+		F7D02A3C1B6B194A003445A9 /* tower2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower2.png; sourceTree = "<group>"; };
+		F7D02A421B6B19A9003445A9 /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
+		F7D02A431B6B19A9003445A9 /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
+		F7D02A451B6B21B7003445A9 /* Tower1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower1.cpp; sourceTree = "<group>"; };
+		F7D02A461B6B21B7003445A9 /* Tower1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower1.h; sourceTree = "<group>"; };
+		F7D02A481B6B2345003445A9 /* Tower2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower2.cpp; sourceTree = "<group>"; };
+		F7D02A491B6B2345003445A9 /* Tower2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,7 +305,9 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F7CE4B901B6A2E9D006E3E3C /* role.txt */,
+				F7D02A3B1B6B194A003445A9 /* tower1.png */,
+				F7D02A3C1B6B194A003445A9 /* tower2.png */,
+				F7CE4B901B6A2E9D006E3E3C /* role1.txt */,
 				F7C648291B687E2B00FC54AF /* role.png */,
 				F7C648181B68677600FC54AF /* map1.tmx */,
 				F7C648161B68676F00FC54AF /* tile.png */,
@@ -314,6 +332,14 @@
 				F7C648241B68730700FC54AF /* Game.h */,
 				F7C648261B68791D00FC54AF /* Role.cpp */,
 				F7C648271B68791D00FC54AF /* Role.h */,
+				F7D02A421B6B19A9003445A9 /* Tower.cpp */,
+				F7D02A431B6B19A9003445A9 /* Tower.h */,
+				F7D02A451B6B21B7003445A9 /* Tower1.cpp */,
+				F7D02A461B6B21B7003445A9 /* Tower1.h */,
+				F7D02A481B6B2345003445A9 /* Tower2.cpp */,
+				F7D02A491B6B2345003445A9 /* Tower2.h */,
+				F74E37501B6B393100946C60 /* TowerMenu.cpp */,
+				F74E37511B6B393100946C60 /* TowerMenu.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -469,6 +495,7 @@
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				F7C6482A1B687E2B00FC54AF /* role.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
+				F7D02A3D1B6B194A003445A9 /* tower1.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
@@ -482,6 +509,7 @@
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				F7C648191B68677600FC54AF /* map1.tmx in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
+				F7D02A3E1B6B194A003445A9 /* tower2.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
@@ -491,7 +519,7 @@
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
-				F7CE4B911B6A2E9D006E3E3C /* role.txt in Resources */,
+				F7CE4B911B6A2E9D006E3E3C /* role1.txt in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,10 +546,14 @@
 			files = (
 				F7C6481F1B68692000FC54AF /* Map1.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				F74E37521B6B393100946C60 /* TowerMenu.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				F7D02A471B6B21B7003445A9 /* Tower1.cpp in Sources */,
+				F7D02A441B6B19A9003445A9 /* Tower.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F7C648281B68791D00FC54AF /* Role.cpp in Sources */,
+				F7D02A4A1B6B2345003445A9 /* Tower2.cpp in Sources */,
 				F7C648251B68730700FC54AF /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -51,6 +51,13 @@ bool Game::init()
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
 
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(true);
+    listener->onTouchBegan = CC_CALLBACK_2(Game::onTouchBegan, this);
+    listener->onTouchMoved = CC_CALLBACK_2(Game::onTouchMoved, this);
+    listener->onTouchEnded = CC_CALLBACK_2(Game::onTouchEnded, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
     //装载地图
     m_map = Map1::create();
     m_map->loadMapFile("map1.tmx");
@@ -59,6 +66,7 @@ bool Game::init()
     scheduleUpdate();
 
     readInitFile();
+
     return true;
 }
 
@@ -95,29 +103,72 @@ void Game::makeRole(float dt)
 
 void Game::readInitFile()
 {
-    std::string path = FileUtils::getInstance()->fullPathForFilename("role.txt");
+    writeData();
 
-//    float x;
-//    int y;
-//    x=3;
-//    y=2;
-//    FILE* pf1 = fopen(path.c_str(), "wb");
-//    if (pf1 == NULL) {
-//        CCLOG("open file error.");
-//    }
-//    fwrite(&x, sizeof(float), 1, pf1);
-//    fwrite(&y, sizeof(int), 1, pf1);
-//    fclose(pf1);
-//
-//    FILE* pf = fopen(path.c_str(), "rb");
-//    if (pf == NULL) {
-//        CCLOG("open file error.");
-//    }
-//     fread(&m_fIntertal, sizeof(float), 1, pf);
-//         fread(&m_iCount, sizeof(int), 1, pf);
-//    fclose(pf);
+    readData();
 
-    m_fIntertal=3;
-    m_iCount=2;
     schedule(schedule_selector(Game::makeRole), m_fIntertal, m_iCount - 1, 0);
+}
+
+void Game::readData()
+{
+    //    getWritablePath  游戏数据存储
+    //    fullPathForFilename 游戏资源
+    // string path = FileUtils::getInstance()->getWritablePath() + "role.txt";
+    string path = FileUtils::getInstance()->fullPathForFilename("role1.txt");
+
+    FILE* pf = fopen(path.c_str(), "rb+");
+    if (pf == NULL) {
+        CCLOG("open file error.");
+        return;
+    }
+    fread(&m_fIntertal, sizeof(float), 1, pf);
+    fread(&m_iCount, sizeof(int), 1, pf);
+    fclose(pf);
+}
+
+void Game::writeData()
+{
+    string path = FileUtils::getInstance()->fullPathForFilename("role1.txt");
+
+    float x;
+    int y;
+    x = 3.0f;
+    y = 2;
+    FILE* pf1 = fopen(path.c_str(), "wb+");
+    if (pf1 == NULL) {
+        CCLOG("open file error.");
+        return;
+    }
+    fwrite(&x, sizeof(float), 1, pf1);
+    fwrite(&y, sizeof(int), 1, pf1);
+    fclose(pf1);
+}
+
+void Game::onTouchEnded(Touch* touch, Event* event)
+{
+    if (m_bIsTowerMenuExist == false) {
+        Vec2 v = touch->getLocation();
+        m_towerMenu = TowerMenu::create();
+        addChild(m_towerMenu, 4,1);
+        m_towerMenu->setPos(v, m_map->getMap(), m_map->getMap()->getPosition(),getTowerVector());
+        m_bIsTowerMenuExist = true;
+    } else {
+        m_towerMenu->release();
+        m_bIsTowerMenuExist = false;
+    }
+}
+
+bool Game::onTouchBegan(Touch* touch, Event* event)
+{
+    return true;
+}
+
+void Game::onTouchMoved(Touch* touch, Event* event)
+{
+}
+
+vector<Tower*>& Game::getTowerVector()
+{
+    return m_vTowerVector;
 }
