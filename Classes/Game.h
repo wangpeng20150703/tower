@@ -13,8 +13,7 @@
 #include <string>
 #include "cocos2d.h"
 #include "Map1.h"
-#include "Role.h"
-#include "Tower.h"
+#include "RoleManager.h"
 #include "TowerMenu.h"
 
 using namespace std;
@@ -28,13 +27,9 @@ private:
     Map1* m_map;
     float m_fIntertal;
     int m_iCount;
-    std::vector<Role*> m_vRole;
     TowerMenu* m_towerMenu;
-    std::vector<Tower*> m_vTowerVector;
 
 public:
-    vector<Tower*>& getTowerVector();
-    
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);

@@ -45,11 +45,11 @@ void TowerMenu::setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 ma
 
     //添加菜单中种类
     auto towerRed=Tower::create();
-    towerRed->setType(RED);
+    towerRed->setTowerType(RED);
     towerRed->load("tower1.png");
     m_vTower.push_back(towerRed);
     auto towerYellow=Tower::create();
-    towerYellow->setType(RED);
+    towerYellow->setTowerType(YELLOW);
     towerYellow->load("tower2.png");
     m_vTower.push_back(towerYellow);
 
@@ -71,8 +71,12 @@ void TowerMenu::addTower(Ref* obj)
     if (obj == NULL) {
         return;
     }
-    TowerManager::getInstance()->addNewTowerToGame(((Tower*)obj)->getType(), getParent(), 1, m_vTileCenter);
-
+    
+    if(!TowerManager::getInstance()->addNewTowerToGame(((Tower*)obj)->getTowerType(), getParent(), 1, m_vTileCenter))
+    {
+        log("TowerMenu::load ERROR");
+        return;
+    }
     //    removeFromParent();
     //    this->removeFromParentAndCleanup(true);
 }
@@ -95,9 +99,21 @@ void TowerMenu::listen(Vec2 v, std::vector<Tower*> vTowerVectoer)
         Rect r = target->getTowerSprite()->getTextureRect();
 
         if (r.containsPoint(locationInNode)) {
-            auto tower = Tower::create();
-            tower->setType(target->getTowerType());
-            NotificationCenter::getInstance()->postNotification("select tower", tower);
+//            auto tower = Tower::create();
+//            tower->setTowerType(target->getTowerType());
+//            NotificationCenter::getInstance()->postNotification("select tower", tower);
+            switch (target->getTowerType()) {
+                case RED: {
+                    auto temp = Tower::create();
+                    temp->setTowerType(RED);
+                    NotificationCenter::getInstance()->postNotification("select tower", temp);
+                } break;
+                case YELLOW: {
+                    auto temp = Tower::create();
+                    temp->setTowerType(YELLOW);
+                    NotificationCenter::getInstance()->postNotification("select tower", temp);
+                } break;
+            }
             return true;
         }
         return false;

@@ -33,14 +33,13 @@ Vec2 Tower::getPos()
     return m_tower->getPosition();
 }
 
-TowerType Tower::getTowerType()
-{
-    return m_eTowerType;
-}
-
 bool Tower::load(std::string fileName)
 {
     m_tower = Sprite::create(fileName);
+    if (!m_tower) {
+        log("load tower::Load ERROR!");
+        return false;
+    }
     addChild(m_tower);
     return true;
 }
@@ -53,12 +52,12 @@ void Tower::shoot()
 {
 }
 
-void Tower::setType(TowerType tp)
+void Tower::setTowerType(TowerType tp)
 {
     m_eTowerType = tp;
 }
 
-TowerType Tower::getType()
+TowerType Tower::getTowerType()
 {
     return m_eTowerType;
 }

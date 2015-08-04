@@ -21,7 +21,8 @@ private:
     static TowerManager* m_pInstance;
     TowerManager();
 public:
+    vector<Tower*>& getTowerVector();
     static TowerManager* getInstance();
-    void addNewTowerToGame(TowerType tp,Node* node,int zOrder,Vec2 vPos);
+    bool addNewTowerToGame(TowerType tp,Node* node,int zOrder,Vec2 vPos);
 };
 #endif /* defined(__tower__TowerManager__) */

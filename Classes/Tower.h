@@ -27,15 +27,14 @@ public:
     void setPos(Vec2 v);
     Sprite* getTowerSprite();
     Vec2 getPos();
-    TowerType getTowerType();
 
     virtual bool init();
     virtual bool load(std::string fileName);
     virtual void update();
     virtual void shoot();
 
-    void setType(TowerType tp);
-    TowerType getType();
+    void setTowerType(TowerType tp);
+    TowerType getTowerType();
 
     CREATE_FUNC(Tower);
 };

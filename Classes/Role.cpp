@@ -21,6 +21,18 @@ bool Role::init()
     return true;
 }
 
+
+bool Role::load(std::string fileName)
+{
+    m_pTexture = Director::getInstance()->getTextureCache()->addImage("role.png");
+    if (!m_pTexture) {
+        log("role::load ERROR");
+        return false;
+    }
+    return true;
+}
+
+
 void Role::setAction(Vec2 v)
 {
     if (m_sprCurrntDirection) {
@@ -29,12 +41,10 @@ void Role::setAction(Vec2 v)
 
     auto s = Director::getInstance()->getWinSize();
 
-    auto texture = Director::getInstance()->getTextureCache()->addImage("role.png");
-
-    auto frame0 = SpriteFrame::createWithTexture(texture, Rect(32 * 0, 48 * m_dirCurrntDirection, 32, 48));
-    auto frame1 = SpriteFrame::createWithTexture(texture, Rect(32 * 1, 48 * m_dirCurrntDirection, 32, 48));
-    auto frame2 = SpriteFrame::createWithTexture(texture, Rect(32 * 2, 48 * m_dirCurrntDirection, 32, 48));
-    auto frame3 = SpriteFrame::createWithTexture(texture, Rect(32 * 3, 48 * m_dirCurrntDirection, 32, 48));
+    auto frame0 = SpriteFrame::createWithTexture(m_pTexture, Rect(32 * 0, 48 * m_dirCurrntDirection, 32, 48));
+    auto frame1 = SpriteFrame::createWithTexture(m_pTexture, Rect(32 * 1, 48 * m_dirCurrntDirection, 32, 48));
+    auto frame2 = SpriteFrame::createWithTexture(m_pTexture, Rect(32 * 2, 48 * m_dirCurrntDirection, 32, 48));
+    auto frame3 = SpriteFrame::createWithTexture(m_pTexture, Rect(32 * 3, 48 * m_dirCurrntDirection, 32, 48));
 
     m_sprCurrntDirection = Sprite::createWithSpriteFrame(frame0);
 

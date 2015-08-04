@@ -81,24 +81,17 @@ void Game::menuCloseCallback(Ref* pSender)
 
 void Game::update(float delta)
 {
-    if (m_vRole.empty()) {
+    if (RoleManager::getInstance()->getRoleVector().empty()) {
         return;
     }
-    for (int i = 0; i < m_vRole.size(); i++) {
-        m_vRole[i]->run();
+    for (int i = 0; i < RoleManager::getInstance()->getRoleVector().size(); i++) {
+        RoleManager::getInstance()->getRoleVector()[i]->run();
     }
 }
 
 void Game::makeRole(float dt)
 {
-    auto role = Role::create();
-    addChild(role, 2);
-    role->setMap(m_map->getMap());
-    // m_role->getMapFileName("map1.tmx");
-    role->setCurrntDirection('d');
-    role->getMapPos(m_map->getMapPos());
-    role->setStartPosition(Vec2(96.0f, 410.0f));  //这里的位置应该为在地图上的相对位置，即忽略地图相对屏幕的移动
-    m_vRole.push_back(role);
+    RoleManager::getInstance()->addNewRoleToGame(ROLE1, this, 2, m_map->getMap(),'d', m_map->getMapPos(),cocos2d::Vec2(96.0f, 410.0f));
 }
 
 void Game::readInitFile()
@@ -112,9 +105,6 @@ void Game::readInitFile()
 
 void Game::readData()
 {
-    //    getWritablePath  游戏数据存储
-    //    fullPathForFilename 游戏资源
-    // string path = FileUtils::getInstance()->getWritablePath() + "role.txt";
     string path = FileUtils::getInstance()->fullPathForFilename("role1.txt");
 
     FILE* pf = fopen(path.c_str(), "rb+");
@@ -151,7 +141,7 @@ void Game::onTouchEnded(Touch* touch, Event* event)
         Vec2 v = touch->getLocation();
         m_towerMenu = TowerMenu::create();
         addChild(m_towerMenu, 4,1);
-        m_towerMenu->setPos(v, m_map->getMap(), m_map->getMap()->getPosition(),getTowerVector());
+        m_towerMenu->setPos(v, m_map->getMap(), m_map->getMap()->getPosition(),TowerManager::getInstance()->getTowerVector());
         m_bIsTowerMenuExist = true;
     } else {
         m_towerMenu->release();
@@ -166,9 +156,4 @@ bool Game::onTouchBegan(Touch* touch, Event* event)
 
 void Game::onTouchMoved(Touch* touch, Event* event)
 {
-}
-
-vector<Tower*>& Game::getTowerVector()
-{
-    return m_vTowerVector;
 }

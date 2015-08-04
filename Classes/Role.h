@@ -15,6 +15,11 @@
 
 enum dir { DOWN, LEFT, RIGHT, UP };
 
+enum roleType
+{
+    ROLE1,ROLE2
+};
+
 class Role : public cocos2d::Node
 {
 private:
@@ -25,8 +30,10 @@ private:
     float m_fTileWidth;
     float m_fTileHeight;
     int** m_ppMapData;
+    cocos2d::Texture2D * m_pTexture;
     
 public:
+    bool load(std::string fileName);
     void setMap(cocos2d::experimental::TMXTiledMap * map);
     void getMapFileName(std::string mapFileName);
     void getMapPos(cocos2d::Vec2 pos);
