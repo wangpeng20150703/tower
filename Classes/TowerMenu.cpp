@@ -7,7 +7,7 @@
 //
 
 #include "TowerMenu.h"
-#include "Game.h"
+#include "TowerMenuManager.h"
 
 bool TowerMenu::init()
 {
@@ -26,10 +26,8 @@ void TowerMenu::onExit()
     Node::onExit();
 }
 
-void TowerMenu::setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 mapOffset, std::vector<Tower*> vTowerVectoer)
+void TowerMenu::setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 mapOffset)
 {
-    m_vMapTower = vTowerVectoer;
-
     // tile正中坐标
     int x = (v.x - mapOffset.x) / pMap->getTileSize().width;
     int y = pMap->getMapSize().height - (v.y - mapOffset.y) / pMap->getTileSize().height;
@@ -63,7 +61,7 @@ void TowerMenu::setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 ma
     }
 
     //监听
-    listen(v, vTowerVectoer);
+    listen();
 }
 
 void TowerMenu::addTower(Ref* obj)
@@ -74,11 +72,10 @@ void TowerMenu::addTower(Ref* obj)
     
     if(!TowerManager::getInstance()->addNewTowerToGame(((Tower*)obj)->getTowerType(), getParent(), 1, m_vTileCenter))
     {
-        log("TowerMenu::load ERROR");
+        log("TowerMenu::addTower ERROR");
         return;
     }
-    //    removeFromParent();
-    //    this->removeFromParentAndCleanup(true);
+    TowerMenuManager::getInstance()->release();
 }
 
 void TowerMenu::release()
@@ -86,7 +83,7 @@ void TowerMenu::release()
     this->removeFromParentAndCleanup(true);
 }
 
-void TowerMenu::listen(Vec2 v, std::vector<Tower*> vTowerVectoer)
+void TowerMenu::listen()
 {
     //设置监听
     auto listener1 = EventListenerTouchOneByOne::create();
@@ -99,9 +96,6 @@ void TowerMenu::listen(Vec2 v, std::vector<Tower*> vTowerVectoer)
         Rect r = target->getTowerSprite()->getTextureRect();
 
         if (r.containsPoint(locationInNode)) {
-//            auto tower = Tower::create();
-//            tower->setTowerType(target->getTowerType());
-//            NotificationCenter::getInstance()->postNotification("select tower", tower);
             switch (target->getTowerType()) {
                 case RED: {
                     auto temp = Tower::create();

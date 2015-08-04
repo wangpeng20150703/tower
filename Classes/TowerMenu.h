@@ -24,13 +24,12 @@ private:
     cocos2d::experimental::TMXTiledMap* m_pMap;
     Vec2 m_vMapOffset;
     bool m_bIsExist;
-    TowerMenu* m_towerMenu;
     TowerType m_TowerType;
-
+    
 public:
     void addTower(Ref* obj);
-    void listen(Vec2 v, std::vector<Tower*> vTowerVectoer);
-    void setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 mapOffset, std::vector<Tower*> vTowerVectoer);
+    void listen();
+    void setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 mapOffset);
     void release();
     virtual bool init();
     virtual void onEnter();

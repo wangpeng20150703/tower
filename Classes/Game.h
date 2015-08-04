@@ -14,7 +14,7 @@
 #include "cocos2d.h"
 #include "Map1.h"
 #include "RoleManager.h"
-#include "TowerMenu.h"
+#include "TowerMenuManager.h"
 
 using namespace std;
 using namespace cocos2d;

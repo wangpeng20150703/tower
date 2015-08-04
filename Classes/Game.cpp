@@ -91,7 +91,8 @@ void Game::update(float delta)
 
 void Game::makeRole(float dt)
 {
-    RoleManager::getInstance()->addNewRoleToGame(ROLE1, this, 2, m_map->getMap(),'d', m_map->getMapPos(),cocos2d::Vec2(96.0f, 410.0f));
+    RoleManager::getInstance()->addNewRoleToGame(
+        ROLE1, this, 2, m_map->getMap(), 'd', m_map->getMapPos(), cocos2d::Vec2(96.0f, 410.0f));
 }
 
 void Game::readInitFile()
@@ -138,13 +139,13 @@ void Game::writeData()
 void Game::onTouchEnded(Touch* touch, Event* event)
 {
     if (m_bIsTowerMenuExist == false) {
-        Vec2 v = touch->getLocation();
-        m_towerMenu = TowerMenu::create();
-        addChild(m_towerMenu, 4,1);
-        m_towerMenu->setPos(v, m_map->getMap(), m_map->getMap()->getPosition(),TowerManager::getInstance()->getTowerVector());
         m_bIsTowerMenuExist = true;
+        Vec2 v = touch->getLocation();
+        TowerMenuManager::getInstance()->addNewTowerMenuToGame(this, 4, v, m_map->getMap(), m_map->getMap()->getPosition());
     } else {
-        m_towerMenu->release();
+        if (TowerMenuManager::getInstance()->getTowerMenu()) {
+            TowerMenuManager::getInstance()->release();
+        }
         m_bIsTowerMenuExist = false;
     }
 }

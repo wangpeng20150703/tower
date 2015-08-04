@@ -149,7 +149,10 @@ void Role::setStartPosition(cocos2d::Vec2 vPos)
 //返回结果为地图相对位置
 cocos2d::Vec2 Role::getPosition()
 {
-    return m_sprCurrntDirection->getPosition();
+    if (m_sprCurrntDirection) {
+        return m_sprCurrntDirection->getPosition();
+    }
+    return NULL;
 }
 
 void Role::setPosition(cocos2d::Vec2 pos)
