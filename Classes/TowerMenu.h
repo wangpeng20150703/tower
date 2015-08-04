@@ -11,8 +11,7 @@
 
 #include <stdio.h>
 #include <cocos2d.h>
-#include "Tower1.h"
-#include "Tower2.h"
+#include "TowerManager.h"
 
 using namespace cocos2d;
 

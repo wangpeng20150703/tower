@@ -14,8 +14,7 @@
 #include "cocos2d.h"
 #include "Map1.h"
 #include "Role.h"
-#include "Tower1.h"
-#include "Tower2.h"
+#include "Tower.h"
 #include "TowerMenu.h"
 
 using namespace std;

@@ -76,8 +76,7 @@
 		F7D02A3D1B6B194A003445A9 /* tower1.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D02A3B1B6B194A003445A9 /* tower1.png */; };
 		F7D02A3E1B6B194A003445A9 /* tower2.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D02A3C1B6B194A003445A9 /* tower2.png */; };
 		F7D02A441B6B19A9003445A9 /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D02A421B6B19A9003445A9 /* Tower.cpp */; };
-		F7D02A471B6B21B7003445A9 /* Tower1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D02A451B6B21B7003445A9 /* Tower1.cpp */; };
-		F7D02A4A1B6B2345003445A9 /* Tower2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D02A481B6B2345003445A9 /* Tower2.cpp */; };
+		F7D99BDD1B6F60F800DEA015 /* TowerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,10 +183,8 @@
 		F7D02A3C1B6B194A003445A9 /* tower2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower2.png; sourceTree = "<group>"; };
 		F7D02A421B6B19A9003445A9 /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
 		F7D02A431B6B19A9003445A9 /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
-		F7D02A451B6B21B7003445A9 /* Tower1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower1.cpp; sourceTree = "<group>"; };
-		F7D02A461B6B21B7003445A9 /* Tower1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower1.h; sourceTree = "<group>"; };
-		F7D02A481B6B2345003445A9 /* Tower2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower2.cpp; sourceTree = "<group>"; };
-		F7D02A491B6B2345003445A9 /* Tower2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower2.h; sourceTree = "<group>"; };
+		F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerManager.cpp; sourceTree = "<group>"; };
+		F7D99BDC1B6F60F800DEA015 /* TowerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,12 +331,10 @@
 				F7C648271B68791D00FC54AF /* Role.h */,
 				F7D02A421B6B19A9003445A9 /* Tower.cpp */,
 				F7D02A431B6B19A9003445A9 /* Tower.h */,
-				F7D02A451B6B21B7003445A9 /* Tower1.cpp */,
-				F7D02A461B6B21B7003445A9 /* Tower1.h */,
-				F7D02A481B6B2345003445A9 /* Tower2.cpp */,
-				F7D02A491B6B2345003445A9 /* Tower2.h */,
 				F74E37501B6B393100946C60 /* TowerMenu.cpp */,
 				F74E37511B6B393100946C60 /* TowerMenu.h */,
+				F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */,
+				F7D99BDC1B6F60F800DEA015 /* TowerManager.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -548,12 +543,11 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				F74E37521B6B393100946C60 /* TowerMenu.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				F7D02A471B6B21B7003445A9 /* Tower1.cpp in Sources */,
 				F7D02A441B6B19A9003445A9 /* Tower.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F7C648281B68791D00FC54AF /* Role.cpp in Sources */,
-				F7D02A4A1B6B2345003445A9 /* Tower2.cpp in Sources */,
+				F7D99BDD1B6F60F800DEA015 /* TowerManager.cpp in Sources */,
 				F7C648251B68730700FC54AF /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

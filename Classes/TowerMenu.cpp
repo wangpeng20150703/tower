@@ -44,8 +44,14 @@ void TowerMenu::setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 ma
     m_vTileCenter.y = v.y + mapOffset.y;
 
     //添加菜单中种类
-    m_vTower.push_back(Tower1::create());
-    m_vTower.push_back(Tower2::create());
+    auto towerRed=Tower::create();
+    towerRed->setType(RED);
+    towerRed->load("tower1.png");
+    m_vTower.push_back(towerRed);
+    auto towerYellow=Tower::create();
+    towerYellow->setType(RED);
+    towerYellow->load("tower2.png");
+    m_vTower.push_back(towerYellow);
 
     //设置子类在菜单中坐标
     m_vTower[0]->setPos(
@@ -62,26 +68,17 @@ void TowerMenu::setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 ma
 
 void TowerMenu::addTower(Ref* obj)
 {
-    Tower* temp;
-    switch (((Tower*)obj)->getType()) {
-        case RED: {
-            temp = Tower1::create();
-        } break;
-        case YELLOW: {
-            temp = Tower2::create();
-        } break;
+    if (obj == NULL) {
+        return;
     }
-    temp->setPos(m_vTileCenter);
-    getParent()->addChild(temp, 1);
+    TowerManager::getInstance()->addNewTowerToGame(((Tower*)obj)->getType(), getParent(), 1, m_vTileCenter);
+
+    //    removeFromParent();
+    //    this->removeFromParentAndCleanup(true);
 }
 
 void TowerMenu::release()
 {
-    //    if (!m_vTower.empty()) {
-    //        m_vTower[0]->getParent()->removeAllChildren();
-    //    }
-    //    m_vTower.clear();
-    //    this->removeFromParent();
     this->removeFromParentAndCleanup(true);
 }
 
@@ -98,18 +95,9 @@ void TowerMenu::listen(Vec2 v, std::vector<Tower*> vTowerVectoer)
         Rect r = target->getTowerSprite()->getTextureRect();
 
         if (r.containsPoint(locationInNode)) {
-            switch (target->getTowerType()) {
-                case RED: {
-                    auto temp = Tower::create();
-                    temp->setType(RED);
-                    NotificationCenter::getInstance()->postNotification("select tower", temp);
-                } break;
-                case YELLOW: {
-                    auto temp = Tower::create();
-                    temp->setType(YELLOW);
-                    NotificationCenter::getInstance()->postNotification("select tower", temp);
-                } break;
-            }
+            auto tower = Tower::create();
+            tower->setType(target->getTowerType());
+            NotificationCenter::getInstance()->postNotification("select tower", tower);
             return true;
         }
         return false;
