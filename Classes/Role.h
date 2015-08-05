@@ -13,6 +13,8 @@
 #include "cocos2d.h"
 #include "Map1.h"
 
+using namespace cocos2d;
+
 enum dir { DOWN, LEFT, RIGHT, UP };
 
 enum roleType
@@ -31,8 +33,12 @@ private:
     float m_fTileHeight;
     int** m_ppMapData;
     cocos2d::Texture2D * m_pTexture;
+    Rect m_rCollideRect;
     
 public:
+    Vec2 getCollidePoint();
+    Rect getCollideRect();
+    Vec2 getRoleSpritePos();
     bool load(std::string fileName);
     void setMap(cocos2d::experimental::TMXTiledMap * map);
     void getMapFileName(std::string mapFileName);

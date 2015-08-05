@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "cocos2d.h"
 #include "Bullet.h"
+#include "RoleManager.h"
 
 using namespace cocos2d;
 
@@ -19,11 +20,12 @@ class BulletManager
 {
 private:
     static BulletManager* m_pInstance;
-    std::vector<BulletManager*> m_vBulletVector;
+    std::vector<Bullet*> m_vBulletVector;
 public:
-    std::vector<BulletManager*> getBulletVector();
+    void update();
+    std::vector<Bullet*> getBulletVector();
     static BulletManager* getInstance();
-    bool addBulletToGame(std::string fileName,Node* node,int zOrder,Vec2 pos);
+    bool addBulletToGame(std::string fileName,Node* node,int zOrder,Vec2 pos,Role* role);
 };
 
 #endif /* defined(__tower__BulletManager__) */

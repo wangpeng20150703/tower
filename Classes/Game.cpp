@@ -66,7 +66,7 @@ bool Game::init()
     scheduleUpdate();
 
     readInitFile();
-
+    
     return true;
 }
 
@@ -84,6 +84,7 @@ void Game::update(float delta)
     if (RoleManager::getInstance()->getRoleVector().empty()) {
         return;
     }
+    BulletManager::getInstance()->update();
 }
 
 void Game::makeRole(float dt)

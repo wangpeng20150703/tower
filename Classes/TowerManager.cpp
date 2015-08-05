@@ -26,6 +26,7 @@ bool TowerManager::addNewTowerToGame(TowerType tp,Node* node,int zOrder,Vec2 vPo
     }
     temp->setTowerType(tp);
     temp->setPos(vPos);
+    temp->setIsMenuTower(false);
     node->addChild(temp,zOrder);
     m_vTower.push_back(temp);
     return true;

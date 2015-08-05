@@ -62,7 +62,7 @@ void Role::setAction(Vec2 v)
     m_sprCurrntDirection->setPosition(v);
 
     m_sprCurrntDirection->setScale(3.0f);
-    m_sprCurrntDirection->setAnchorPoint(Point(0.5, 0.08));
+    m_sprCurrntDirection->setAnchorPoint(Point(0.5, 0.10));
     addChild(m_sprCurrntDirection);
 }
 
@@ -82,7 +82,7 @@ void Role::update(float delta)
         case UP: {
             m_sprCurrntDirection->setPositionY(m_sprCurrntDirection->getPositionY() + 1);
             if (getMapDate(Vec2(iX, iY - 1)) != 1) {
-                if (fY - iY < 0.8) {
+                if (fY - iY < 0.6) {
                     if (getMapDate(Vec2(iX + 1, iY)) == 1) {
                         setCurrntDirection('d');
                     } else {
@@ -94,7 +94,7 @@ void Role::update(float delta)
         case DOWN: {
             m_sprCurrntDirection->setPositionY(m_sprCurrntDirection->getPositionY() - 1);
             if (getMapDate(Vec2(iX, iY + 1)) != 1) {
-                if (fY - iY > 0.8) {
+                if (fY - iY > 0.6) {
                     if (getMapDate(Vec2(iX + 1, iY)) == 1) {
                         setCurrntDirection('d');
                     } else {
@@ -210,4 +210,28 @@ void Role::setMap(cocos2d::experimental::TMXTiledMap* map)
             m_ppMapData[i][j] = layer->getTileGIDAt(Vec2(i, j));
         }
     }
+}
+
+
+Vec2 Role::getRoleSpritePos()
+{
+    return m_sprCurrntDirection->getPosition();
+}
+
+
+Rect Role::getCollideRect()
+{
+    Vec2 origin;
+    Vec2 size;
+    origin=m_sprCurrntDirection->getPosition();
+    size=m_sprCurrntDirection->getTextureRect().size*2.5f;
+    return Rect(origin.x-size.x/2,origin.y,size.x,size.y);
+}
+
+
+Vec2 Role::getCollidePoint()
+{
+    Vec2 point=m_sprCurrntDirection->getPosition();
+    point.y+=m_sprCurrntDirection->getTextureRect().size.height*0.4f;
+    return point;
 }

@@ -14,7 +14,7 @@ bool Tower::init()
 {
     //////////////////////////////
     // 1. super init first
-//    scheduleUpdate();
+    //    scheduleUpdate();
     return true;
 }
 
@@ -22,7 +22,7 @@ void Tower::setPos(Vec2 v)
 {
     m_tower->setPosition(v);
     //设置更新
-    schedule(schedule_selector(Tower::shoot), 4.0f, kRepeatForever, 0);
+    schedule(schedule_selector(Tower::shoot), 0.5f, kRepeatForever, 0);
 }
 
 Sprite* Tower::getTowerSprite()
@@ -48,12 +48,16 @@ bool Tower::load(std::string fileName)
 
 void Tower::shoot(float delta)
 {
-    
+    //角色进入范围并且塔不为菜单中的子类
+    for (int i=0; i<RoleManager::getInstance()->getRoleVector().size(); i++) {
+        if(m_tower->getPosition().getDistance(RoleManager::getInstance()->getRoleVector()[i]->getRoleSpritePos())<=200&&m_bIsMenuTower==false)
+        {
+            BulletManager::getInstance()->addBulletToGame("bulled.png", this->getParent(), 6, getPos(),RoleManager::getInstance()->getRoleVector()[i]);
+            return;
+        }
+    }
 }
 
-void Tower::shoot()
-{
-}
 
 void Tower::setTowerType(TowerType tp)
 {
@@ -63,4 +67,16 @@ void Tower::setTowerType(TowerType tp)
 TowerType Tower::getTowerType()
 {
     return m_eTowerType;
+}
+
+
+void Tower::setIsMenuTower(bool is)
+{
+    m_bIsMenuTower=is;
+}
+
+
+bool Tower::getIsMenuTower()
+{
+    return m_bIsMenuTower;
 }

@@ -22,8 +22,8 @@ void TowerMenu::onEnter()
 }
 void TowerMenu::onExit()
 {
-    NotificationCenter::getInstance()->removeAllObservers(this);
     Node::onExit();
+    NotificationCenter::getInstance()->removeAllObservers(this);
 }
 
 void TowerMenu::setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 mapOffset)
@@ -45,10 +45,12 @@ void TowerMenu::setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 ma
     auto towerRed=Tower::create();
     towerRed->setTowerType(RED);
     towerRed->load("tower1.png");
+    towerRed->setIsMenuTower(true);
     m_vTower.push_back(towerRed);
     auto towerYellow=Tower::create();
     towerYellow->setTowerType(YELLOW);
     towerYellow->load("tower2.png");
+    towerYellow->setIsMenuTower(true);
     m_vTower.push_back(towerYellow);
 
     //设置子类在菜单中坐标

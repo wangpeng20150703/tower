@@ -82,6 +82,7 @@
 		F7D268611B70A27200887AE8 /* TowerMenuManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2685F1B70A27200887AE8 /* TowerMenuManager.cpp */; };
 		F7D99BDD1B6F60F800DEA015 /* TowerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */; };
 		F7E0E6CC1B719D6A00A4D140 /* bulled.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E0E6CB1B719D6A00A4D140 /* bulled.png */; };
+		F7E0E6CF1B719EA200A4D140 /* BulletManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E0E6CD1B719EA200A4D140 /* BulletManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +199,8 @@
 		F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerManager.cpp; sourceTree = "<group>"; };
 		F7D99BDC1B6F60F800DEA015 /* TowerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerManager.h; sourceTree = "<group>"; };
 		F7E0E6CB1B719D6A00A4D140 /* bulled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulled.png; sourceTree = "<group>"; };
+		F7E0E6CD1B719EA200A4D140 /* BulletManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BulletManager.cpp; sourceTree = "<group>"; };
+		F7E0E6CE1B719EA200A4D140 /* BulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,22 +341,24 @@
 			children = (
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				F7C6481D1B68692000FC54AF /* Map1.cpp */,
-				F7C6481E1B68692000FC54AF /* Map1.h */,
-				F7C648231B68730700FC54AF /* Game.cpp */,
-				F7C648241B68730700FC54AF /* Game.h */,
-				F7C648261B68791D00FC54AF /* Role.cpp */,
-				F7C648271B68791D00FC54AF /* Role.h */,
-				F7D02A421B6B19A9003445A9 /* Tower.cpp */,
-				F7D02A431B6B19A9003445A9 /* Tower.h */,
-				F74E37501B6B393100946C60 /* TowerMenu.cpp */,
-				F74E37511B6B393100946C60 /* TowerMenu.h */,
-				F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */,
-				F7D99BDC1B6F60F800DEA015 /* TowerManager.h */,
-				F7D268571B7057E900887AE8 /* RoleManager.cpp */,
-				F7D268581B7057E900887AE8 /* RoleManager.h */,
 				F7D2685C1B708BCE00887AE8 /* Bullet.cpp */,
 				F7D2685D1B708BCE00887AE8 /* Bullet.h */,
+				F7E0E6CD1B719EA200A4D140 /* BulletManager.cpp */,
+				F7E0E6CE1B719EA200A4D140 /* BulletManager.h */,
+				F7C648231B68730700FC54AF /* Game.cpp */,
+				F7C648241B68730700FC54AF /* Game.h */,
+				F7C6481D1B68692000FC54AF /* Map1.cpp */,
+				F7C6481E1B68692000FC54AF /* Map1.h */,
+				F7C648261B68791D00FC54AF /* Role.cpp */,
+				F7C648271B68791D00FC54AF /* Role.h */,
+				F7D268571B7057E900887AE8 /* RoleManager.cpp */,
+				F7D268581B7057E900887AE8 /* RoleManager.h */,
+				F7D02A421B6B19A9003445A9 /* Tower.cpp */,
+				F7D02A431B6B19A9003445A9 /* Tower.h */,
+				F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */,
+				F7D99BDC1B6F60F800DEA015 /* TowerManager.h */,
+				F74E37501B6B393100946C60 /* TowerMenu.cpp */,
+				F74E37511B6B393100946C60 /* TowerMenu.h */,
 				F7D2685F1B70A27200887AE8 /* TowerMenuManager.cpp */,
 				F7D268601B70A27200887AE8 /* TowerMenuManager.h */,
 			);
@@ -563,6 +568,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7C6481F1B68692000FC54AF /* Map1.cpp in Sources */,
+				F7E0E6CF1B719EA200A4D140 /* BulletManager.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				F74E37521B6B393100946C60 /* TowerMenu.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
