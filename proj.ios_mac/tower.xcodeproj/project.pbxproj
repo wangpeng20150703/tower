@@ -81,6 +81,7 @@
 		F7D2685E1B708BCE00887AE8 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2685C1B708BCE00887AE8 /* Bullet.cpp */; };
 		F7D268611B70A27200887AE8 /* TowerMenuManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2685F1B70A27200887AE8 /* TowerMenuManager.cpp */; };
 		F7D99BDD1B6F60F800DEA015 /* TowerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */; };
+		F7E0E6CC1B719D6A00A4D140 /* bulled.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E0E6CB1B719D6A00A4D140 /* bulled.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +197,7 @@
 		F7D268601B70A27200887AE8 /* TowerMenuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMenuManager.h; sourceTree = "<group>"; };
 		F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerManager.cpp; sourceTree = "<group>"; };
 		F7D99BDC1B6F60F800DEA015 /* TowerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerManager.h; sourceTree = "<group>"; };
+		F7E0E6CB1B719D6A00A4D140 /* bulled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulled.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +315,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7E0E6CB1B719D6A00A4D140 /* bulled.png */,
 				F7D2685A1B706FB800887AE8 /* role2.png */,
 				F7D02A3B1B6B194A003445A9 /* tower1.png */,
 				F7D02A3C1B6B194A003445A9 /* tower2.png */,
@@ -519,6 +522,7 @@
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				F7D2685B1B706FB800887AE8 /* role2.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
+				F7E0E6CC1B719D6A00A4D140 /* bulled.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				F7C648191B68677600FC54AF /* map1.tmx in Resources */,

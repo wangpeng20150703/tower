@@ -38,7 +38,7 @@ public:
     void getMapFileName(std::string mapFileName);
     void getMapPos(cocos2d::Vec2 pos);
     void setAction(cocos2d::Vec2 v);
-    void run();
+    void update(float delta);
     void setCurrntDirection(char dir);
     cocos2d::Vec2 getPosition();
     void setPosition(cocos2d::Vec2 pos);

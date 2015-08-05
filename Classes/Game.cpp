@@ -84,9 +84,6 @@ void Game::update(float delta)
     if (RoleManager::getInstance()->getRoleVector().empty()) {
         return;
     }
-    for (int i = 0; i < RoleManager::getInstance()->getRoleVector().size(); i++) {
-        RoleManager::getInstance()->getRoleVector()[i]->run();
-    }
 }
 
 void Game::makeRole(float dt)

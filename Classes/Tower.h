@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "cocos2d.h"
 #include "Map1.h"
+#include "BulletManager.h"
 
 using namespace cocos2d;
 
@@ -30,7 +31,7 @@ public:
 
     virtual bool init();
     virtual bool load(std::string fileName);
-    virtual void update();
+    void shoot(float delta);
     virtual void shoot();
 
     void setTowerType(TowerType tp);

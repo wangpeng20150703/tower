@@ -67,7 +67,7 @@ void Role::setAction(Vec2 v)
 }
 
 // move
-void Role::run()
+void Role::update(float delta)
 {
     if (m_sprCurrntDirection == NULL) {
         return;
@@ -144,6 +144,10 @@ void Role::setStartPosition(cocos2d::Vec2 vPos)
 {
     vPos = vPos + m_vMapPos;
     m_sprCurrntDirection->setPosition(vPos);
+    //设置更新
+    if (m_sprCurrntDirection) {
+        scheduleUpdate();
+    }
 }
 
 //返回结果为地图相对位置

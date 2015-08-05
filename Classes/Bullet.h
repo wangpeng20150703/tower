@@ -20,8 +20,10 @@ private:
     Sprite* m_bulletSprite;
 
 public:
+    virtual bool init();
     void update(float delta);
     bool load(std::string fileName);
+    CREATE_FUNC(Bullet);
 };
 
 #endif /* defined(__tower__Bullet__) */

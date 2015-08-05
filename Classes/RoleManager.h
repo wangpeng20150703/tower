@@ -14,7 +14,7 @@
 
 using namespace std;
 
-class RoleManager
+class RoleManager:public cocos2d::Node
 {
 private:
     static RoleManager* m_pInstance;

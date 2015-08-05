@@ -8,6 +8,13 @@
 
 #include "Bullet.h"
 
+
+bool Bullet::init()
+{
+    return true;
+}
+
+
 bool Bullet::load(std::string fileName)
 {
     m_bulletSprite = Sprite::create(fileName);
