@@ -26,15 +26,16 @@ bool Bullet::load(std::string fileName)
 
 void Bullet::update(float delta)
 {
-    //获得
-    Vec2 single;
-    single.set(m_bulletSprite->getPosition(), m_roleAim->getCollidePoint());
-    single.normalize();
-    single*=6;
-    m_bulletSprite->setPosition(m_bulletSprite->getPosition()+single);
+    if(m_roleAim!=NULL)
+    {
+        m_vDirection.set(m_bulletSprite->getPosition(), m_roleAim->getCollidePoint());
+    }
+    m_vDirection.normalize();
+    m_vDirection*=3;
+    m_bulletSprite->setPosition(m_bulletSprite->getPosition()+m_vDirection);
 }
 
-void Bullet::setRole(Role* role)
+void Bullet::setRole(Role*& role)
 {
     m_roleAim = role;
     scheduleUpdate();
@@ -52,7 +53,7 @@ Vec2 Bullet::getPos()
 }
 
 
-Role* Bullet::getRole()
+Role*& Bullet::getRole()
 {
     return  m_roleAim;
 }

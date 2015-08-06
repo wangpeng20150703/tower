@@ -25,7 +25,7 @@ public:
     void update();
     std::vector<Bullet*> getBulletVector();
     static BulletManager* getInstance();
-    bool addBulletToGame(std::string fileName,Node* node,int zOrder,Vec2 pos,Role* role);
+    bool addBulletToGame(std::string fileName,Node* node,int zOrder,Vec2 pos,Role*& role);
 };
 
 #endif /* defined(__tower__BulletManager__) */

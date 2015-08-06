@@ -22,7 +22,7 @@ void Tower::setPos(Vec2 v)
 {
     m_tower->setPosition(v);
     //设置更新
-    schedule(schedule_selector(Tower::shoot), 0.5f, kRepeatForever, 0);
+    schedule(schedule_selector(Tower::shoot), 1.0f, kRepeatForever, 0);
 }
 
 Sprite* Tower::getTowerSprite()

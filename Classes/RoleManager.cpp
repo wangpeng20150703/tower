@@ -41,7 +41,26 @@ bool RoleManager::addNewRoleToGame(roleType tp,cocos2d::Node* node,int zOrder,co
 }
 
 
-vector<Role*> RoleManager::getRoleVector()
+vector<Role*>& RoleManager::getRoleVector()
 {
     return m_vRoleVector;
+}
+
+
+void RoleManager::update()
+{
+    if(m_vRoleVector.size()==0)
+    {
+        return;
+    }
+    for (std::vector<Role*>::iterator it=m_vRoleVector.begin(); it!=m_vRoleVector.end(); ) {
+        auto x =(*it)->getRolePosInMapTile();
+        if((int)((*it)->getRolePosInMapTile().x)==10&&(int)((*it)->getRolePosInMapTile().y)==3)
+        {
+            (*it)->removeFromParentAndCleanup(true);
+            it=m_vRoleVector.erase(it);
+            continue;
+        }
+        it++;
+    }
 }

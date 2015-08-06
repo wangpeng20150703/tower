@@ -85,6 +85,7 @@ void Game::update(float delta)
         return;
     }
     BulletManager::getInstance()->update();
+    RoleManager::getInstance()->update();
 }
 
 void Game::makeRole(float dt)
@@ -123,7 +124,7 @@ void Game::writeData()
     float x;
     int y;
     x = 3.0f;
-    y = 2;
+    y = 100;
     FILE* pf1 = fopen(path.c_str(), "wb+");
     if (pf1 == NULL) {
         CCLOG("open file error.");

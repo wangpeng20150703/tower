@@ -21,7 +21,6 @@ bool Role::init()
     return true;
 }
 
-
 bool Role::load(std::string fileName)
 {
     m_pTexture = Director::getInstance()->getTextureCache()->addImage("role.png");
@@ -31,7 +30,6 @@ bool Role::load(std::string fileName)
     }
     return true;
 }
-
 
 void Role::setAction(Vec2 v)
 {
@@ -63,7 +61,8 @@ void Role::setAction(Vec2 v)
 
     m_sprCurrntDirection->setScale(3.0f);
     m_sprCurrntDirection->setAnchorPoint(Point(0.5, 0.10));
-    addChild(m_sprCurrntDirection);
+
+    addChild(m_sprCurrntDirection, 0);
 }
 
 // move
@@ -77,7 +76,7 @@ void Role::update(float delta)
 
     int iX = fX;
     int iY = fY;
-//    CCLOG("%d,%d", iX, iY);
+
     switch (m_dirCurrntDirection) {
         case UP: {
             m_sprCurrntDirection->setPositionY(m_sprCurrntDirection->getPositionY() + 1);
@@ -103,9 +102,7 @@ void Role::update(float delta)
                 }
             }
 
-        }
-
-        break;
+        } break;
         case LEFT: {
             m_sprCurrntDirection->setPositionX(m_sprCurrntDirection->getPositionX() - 1);
             if (getMapDate(Vec2(iX - 1, iY)) != 1) {
@@ -117,9 +114,7 @@ void Role::update(float delta)
                     }
                 }
             }
-        }
-
-        break;
+        } break;
         case RIGHT: {
             m_sprCurrntDirection->setPositionX(m_sprCurrntDirection->getPositionX() + 1);
             if (getMapDate(Vec2(iX + 1, iY)) != 1) {
@@ -133,6 +128,10 @@ void Role::update(float delta)
             }
         } break;
     }
+    //设置血条图片位置
+    m_sprRoleLife->setPosition(
+        Vec2(m_sprCurrntDirection->getPosition().x,
+             m_sprCurrntDirection->getPosition().y + m_sprCurrntDirection->getTextureRect().size.height * 2.5));
 }
 
 int Role::getMapDate(cocos2d::Vec2 v)
@@ -140,6 +139,7 @@ int Role::getMapDate(cocos2d::Vec2 v)
     return m_ppMapData[(int)v.x][(int)v.y];
 }
 
+//设置开始位置前需要调用setRoleTotalLofe(int life)、setRoleCurrntLofe(int life)设置角色当前血量以及总血量
 void Role::setStartPosition(cocos2d::Vec2 vPos)
 {
     vPos = vPos + m_vMapPos;
@@ -147,10 +147,16 @@ void Role::setStartPosition(cocos2d::Vec2 vPos)
     //设置更新
     if (m_sprCurrntDirection) {
         scheduleUpdate();
+
+        //初始化设置默认的角色总血量、当前血量
+        m_sprRoleLife = Sprite::create("life.png");
+        setRoleTotalLife(100);
+        setRoleCurrntLife(100);
+        addChild(m_sprRoleLife, 0);
     }
 }
 
-//返回结果为地图相对位置
+//返回结果为地图绝对位置
 cocos2d::Vec2 Role::getPosition()
 {
     if (m_sprCurrntDirection) {
@@ -182,8 +188,12 @@ void Role::setCurrntDirection(char dir)
     }
 
     setAction(v);
+
     if (m_sprCurrntDirection->getPosition() == Vec2(0, 0)) {
         m_sprCurrntDirection->setPosition(v);
+        if (m_sprRoleLife) {
+            m_sprCurrntDirection->addChild(m_sprRoleLife, 0);
+        }
     }
 }
 
@@ -194,7 +204,6 @@ void Role::getMapPos(cocos2d::Vec2 pos)
 
 void Role::setMap(cocos2d::experimental::TMXTiledMap* map)
 {
-    // auto map = cocos2d::experimental::TMXTiledMap::create(mapFileName);
     m_iMapHeight = map->getMapSize().height;
     auto layer = map->getLayer("layer0");
     m_fTileWidth = map->getTileSize().width;
@@ -212,26 +221,56 @@ void Role::setMap(cocos2d::experimental::TMXTiledMap* map)
     }
 }
 
-
 Vec2 Role::getRoleSpritePos()
 {
     return m_sprCurrntDirection->getPosition();
 }
 
-
 Rect Role::getCollideRect()
 {
     Vec2 origin;
     Vec2 size;
-    origin=m_sprCurrntDirection->getPosition();
-    size=m_sprCurrntDirection->getTextureRect().size*2.5f;
-    return Rect(origin.x-size.x/2,origin.y,size.x,size.y);
+    origin = m_sprCurrntDirection->getPosition();
+    size = m_sprCurrntDirection->getTextureRect().size * 2.5f;
+    return Rect(origin.x - size.x / 2, origin.y, size.x, size.y);
 }
-
 
 Vec2 Role::getCollidePoint()
 {
-    Vec2 point=m_sprCurrntDirection->getPosition();
-    point.y+=m_sprCurrntDirection->getTextureRect().size.height*0.4f;
+    Vec2 point = m_sprCurrntDirection->getPosition();
+    point.y += m_sprCurrntDirection->getTextureRect().size.height * 0.4f;
     return point;
+}
+
+//获取角色生命条图片精灵
+cocos2d::Sprite* Role::getRoleSprite()
+{
+    return m_sprRoleLife;
+}
+//获取角色生命值
+float Role::getRoleTotalLife()
+{
+    return m_fTotalLife;
+}
+float Role::getRoleCurrntLife()
+{
+    return m_fCurrntLife;
+}
+//设置角色生命值
+void Role::setRoleTotalLife(float life)
+{
+    m_fTotalLife = life;
+}
+void Role::setRoleCurrntLife(float life)
+{
+    m_fCurrntLife = life;
+    m_sprRoleLife->setScaleX(m_fCurrntLife / m_fTotalLife);
+}
+
+Vec2 Role::getRolePosInMapTile()
+{
+    Vec2 v;
+    v.x = (getPosition().x - m_vMapPos.x) / m_fTileWidth;
+    v.y = m_iMapHeight - (getPosition().y - m_vMapPos.y) / m_fTileHeight;
+    return v;
 }

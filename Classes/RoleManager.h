@@ -21,7 +21,8 @@ private:
     vector<Role*> m_vRoleVector;
 
 public:
-    vector<Role*> getRoleVector();
+    void update();
+    vector<Role*>& getRoleVector();
     static RoleManager* getInstance();
     bool addNewRoleToGame(roleType tp, cocos2d::Node* node, int zOrder, cocos2d::experimental::TMXTiledMap* map, char dir, cocos2d::Vec2 pos,cocos2d::Vec2 roleStartPos);
 };

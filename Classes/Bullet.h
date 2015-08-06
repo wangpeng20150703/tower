@@ -20,11 +20,13 @@ class Bullet : public cocos2d::Node
 private:
     Sprite* m_bulletSprite;
     Role* m_roleAim;
+    Vec2 m_vDirection;
+    
 public:
     void setPos(Vec2 v);
     Vec2 getPos();
-    void setRole(Role* role);
-    Role* getRole();
+    void setRole(Role*& role);
+    Role*& getRole();
     virtual bool init();
     void update(float delta);
     bool load(std::string fileName);

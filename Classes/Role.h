@@ -25,6 +25,12 @@ enum roleType
 class Role : public cocos2d::Node
 {
 private:
+    //角色生命条图片精灵
+    cocos2d::Sprite* m_sprRoleLife;
+    //角色生命值
+    float m_fTotalLife;
+    float m_fCurrntLife;
+    
     cocos2d::Sprite* m_sprCurrntDirection;
     dir m_dirCurrntDirection;
     cocos2d::Vec2 m_vMapPos;  //获得同一场景下的地图的位置
@@ -36,6 +42,17 @@ private:
     Rect m_rCollideRect;
     
 public:
+    //获得角色在地图中的贴块坐标
+    Vec2 getRolePosInMapTile();
+    //获取角色生命条图片精灵
+    cocos2d::Sprite* getRoleSprite();
+    //获取角色生命值
+    float getRoleTotalLife();
+    float getRoleCurrntLife();
+    //设置角色生命值
+    void setRoleTotalLife(float life);
+    void setRoleCurrntLife(float life);
+    
     Vec2 getCollidePoint();
     Rect getCollideRect();
     Vec2 getRoleSpritePos();

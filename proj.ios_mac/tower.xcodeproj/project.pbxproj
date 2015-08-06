@@ -83,6 +83,7 @@
 		F7D99BDD1B6F60F800DEA015 /* TowerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */; };
 		F7E0E6CC1B719D6A00A4D140 /* bulled.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E0E6CB1B719D6A00A4D140 /* bulled.png */; };
 		F7E0E6CF1B719EA200A4D140 /* BulletManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E0E6CD1B719EA200A4D140 /* BulletManager.cpp */; };
+		F7E8C2A51B72F18100851C5E /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E8C2A41B72F18100851C5E /* life.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +202,7 @@
 		F7E0E6CB1B719D6A00A4D140 /* bulled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulled.png; sourceTree = "<group>"; };
 		F7E0E6CD1B719EA200A4D140 /* BulletManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BulletManager.cpp; sourceTree = "<group>"; };
 		F7E0E6CE1B719EA200A4D140 /* BulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletManager.h; sourceTree = "<group>"; };
+		F7E8C2A41B72F18100851C5E /* life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = life.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +320,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7E8C2A41B72F18100851C5E /* life.png */,
 				F7E0E6CB1B719D6A00A4D140 /* bulled.png */,
 				F7D2685A1B706FB800887AE8 /* role2.png */,
 				F7D02A3B1B6B194A003445A9 /* tower1.png */,
@@ -540,6 +543,7 @@
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
+				F7E8C2A51B72F18100851C5E /* life.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				F7CE4B911B6A2E9D006E3E3C /* role1.txt in Resources */,
