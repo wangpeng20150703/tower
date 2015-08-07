@@ -21,6 +21,7 @@ private:
     static TowerManager* m_pInstance;
     TowerManager();
 public:
+    void release();
     vector<Tower*>& getTowerVector();
     static TowerManager* getInstance();
     bool addNewTowerToGame(TowerType tp,Node* node,int zOrder,Vec2 vPos);

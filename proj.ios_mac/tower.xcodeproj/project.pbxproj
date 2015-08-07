@@ -67,21 +67,24 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		F74E37521B6B393100946C60 /* TowerMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F74E37501B6B393100946C60 /* TowerMenu.cpp */; };
 		F7C648171B68676F00FC54AF /* tile.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C648161B68676F00FC54AF /* tile.png */; };
-		F7C648191B68677600FC54AF /* map1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F7C648181B68677600FC54AF /* map1.tmx */; };
+		F7C648191B68677600FC54AF /* map0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F7C648181B68677600FC54AF /* map0.tmx */; };
 		F7C6481F1B68692000FC54AF /* Map1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C6481D1B68692000FC54AF /* Map1.cpp */; };
 		F7C648251B68730700FC54AF /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C648231B68730700FC54AF /* Game.cpp */; };
 		F7C648281B68791D00FC54AF /* Role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C648261B68791D00FC54AF /* Role.cpp */; };
-		F7C6482A1B687E2B00FC54AF /* role.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C648291B687E2B00FC54AF /* role.png */; };
-		F7CE4B911B6A2E9D006E3E3C /* role1.txt in Resources */ = {isa = PBXBuildFile; fileRef = F7CE4B901B6A2E9D006E3E3C /* role1.txt */; };
+		F7C6482A1B687E2B00FC54AF /* role0.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C648291B687E2B00FC54AF /* role0.png */; };
+		F7CE4B911B6A2E9D006E3E3C /* game.ini in Resources */ = {isa = PBXBuildFile; fileRef = F7CE4B901B6A2E9D006E3E3C /* game.ini */; };
 		F7D02A3D1B6B194A003445A9 /* tower1.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D02A3B1B6B194A003445A9 /* tower1.png */; };
 		F7D02A3E1B6B194A003445A9 /* tower2.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D02A3C1B6B194A003445A9 /* tower2.png */; };
 		F7D02A441B6B19A9003445A9 /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D02A421B6B19A9003445A9 /* Tower.cpp */; };
 		F7D268591B7057E900887AE8 /* RoleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D268571B7057E900887AE8 /* RoleManager.cpp */; };
-		F7D2685B1B706FB800887AE8 /* role2.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D2685A1B706FB800887AE8 /* role2.png */; };
+		F7D2685B1B706FB800887AE8 /* role1.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D2685A1B706FB800887AE8 /* role1.png */; };
 		F7D2685E1B708BCE00887AE8 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2685C1B708BCE00887AE8 /* Bullet.cpp */; };
 		F7D268611B70A27200887AE8 /* TowerMenuManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2685F1B70A27200887AE8 /* TowerMenuManager.cpp */; };
 		F7D99BDD1B6F60F800DEA015 /* TowerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */; };
-		F7E0E6CC1B719D6A00A4D140 /* bulled.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E0E6CB1B719D6A00A4D140 /* bulled.png */; };
+		F7DA0AEE1B748F9D00CCCA1B /* roleData.ini in Resources */ = {isa = PBXBuildFile; fileRef = F7DA0AED1B748F9D00CCCA1B /* roleData.ini */; };
+		F7DA0AF01B74A54E00CCCA1B /* bullet1.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DA0AEF1B74A54E00CCCA1B /* bullet1.png */; };
+		F7DA0AF21B74A95B00CCCA1B /* bullet.ini in Resources */ = {isa = PBXBuildFile; fileRef = F7DA0AF11B74A95B00CCCA1B /* bullet.ini */; };
+		F7E0E6CC1B719D6A00A4D140 /* bullet0.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E0E6CB1B719D6A00A4D140 /* bullet0.png */; };
 		F7E0E6CF1B719EA200A4D140 /* BulletManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E0E6CD1B719EA200A4D140 /* BulletManager.cpp */; };
 		F7E8C2A51B72F18100851C5E /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E8C2A41B72F18100851C5E /* life.png */; };
 /* End PBXBuildFile section */
@@ -177,29 +180,32 @@
 		F74E37501B6B393100946C60 /* TowerMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerMenu.cpp; sourceTree = "<group>"; };
 		F74E37511B6B393100946C60 /* TowerMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMenu.h; sourceTree = "<group>"; };
 		F7C648161B68676F00FC54AF /* tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile.png; sourceTree = "<group>"; };
-		F7C648181B68677600FC54AF /* map1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map1.tmx; sourceTree = "<group>"; };
+		F7C648181B68677600FC54AF /* map0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map0.tmx; sourceTree = "<group>"; };
 		F7C6481D1B68692000FC54AF /* Map1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Map1.cpp; sourceTree = "<group>"; };
 		F7C6481E1B68692000FC54AF /* Map1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map1.h; sourceTree = "<group>"; };
 		F7C648231B68730700FC54AF /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		F7C648241B68730700FC54AF /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		F7C648261B68791D00FC54AF /* Role.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Role.cpp; sourceTree = "<group>"; };
 		F7C648271B68791D00FC54AF /* Role.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Role.h; sourceTree = "<group>"; };
-		F7C648291B687E2B00FC54AF /* role.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = role.png; sourceTree = "<group>"; };
-		F7CE4B901B6A2E9D006E3E3C /* role1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = role1.txt; sourceTree = "<group>"; };
+		F7C648291B687E2B00FC54AF /* role0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = role0.png; sourceTree = "<group>"; };
+		F7CE4B901B6A2E9D006E3E3C /* game.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game.ini; sourceTree = "<group>"; };
 		F7D02A3B1B6B194A003445A9 /* tower1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower1.png; sourceTree = "<group>"; };
 		F7D02A3C1B6B194A003445A9 /* tower2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower2.png; sourceTree = "<group>"; };
 		F7D02A421B6B19A9003445A9 /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
 		F7D02A431B6B19A9003445A9 /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		F7D268571B7057E900887AE8 /* RoleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoleManager.cpp; sourceTree = "<group>"; };
 		F7D268581B7057E900887AE8 /* RoleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoleManager.h; sourceTree = "<group>"; };
-		F7D2685A1B706FB800887AE8 /* role2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = role2.png; sourceTree = "<group>"; };
+		F7D2685A1B706FB800887AE8 /* role1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = role1.png; sourceTree = "<group>"; };
 		F7D2685C1B708BCE00887AE8 /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
 		F7D2685D1B708BCE00887AE8 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		F7D2685F1B70A27200887AE8 /* TowerMenuManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerMenuManager.cpp; sourceTree = "<group>"; };
 		F7D268601B70A27200887AE8 /* TowerMenuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMenuManager.h; sourceTree = "<group>"; };
 		F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerManager.cpp; sourceTree = "<group>"; };
 		F7D99BDC1B6F60F800DEA015 /* TowerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerManager.h; sourceTree = "<group>"; };
-		F7E0E6CB1B719D6A00A4D140 /* bulled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulled.png; sourceTree = "<group>"; };
+		F7DA0AED1B748F9D00CCCA1B /* roleData.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = roleData.ini; sourceTree = "<group>"; };
+		F7DA0AEF1B74A54E00CCCA1B /* bullet1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet1.png; sourceTree = "<group>"; };
+		F7DA0AF11B74A95B00CCCA1B /* bullet.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bullet.ini; sourceTree = "<group>"; };
+		F7E0E6CB1B719D6A00A4D140 /* bullet0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet0.png; sourceTree = "<group>"; };
 		F7E0E6CD1B719EA200A4D140 /* BulletManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BulletManager.cpp; sourceTree = "<group>"; };
 		F7E0E6CE1B719EA200A4D140 /* BulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletManager.h; sourceTree = "<group>"; };
 		F7E8C2A41B72F18100851C5E /* life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = life.png; sourceTree = "<group>"; };
@@ -320,20 +326,23 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F7E8C2A41B72F18100851C5E /* life.png */,
-				F7E0E6CB1B719D6A00A4D140 /* bulled.png */,
-				F7D2685A1B706FB800887AE8 /* role2.png */,
-				F7D02A3B1B6B194A003445A9 /* tower1.png */,
-				F7D02A3C1B6B194A003445A9 /* tower2.png */,
-				F7CE4B901B6A2E9D006E3E3C /* role1.txt */,
-				F7C648291B687E2B00FC54AF /* role.png */,
-				F7C648181B68677600FC54AF /* map1.tmx */,
-				F7C648161B68676F00FC54AF /* tile.png */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
+				F7DA0AF11B74A95B00CCCA1B /* bullet.ini */,
+				F7CE4B901B6A2E9D006E3E3C /* game.ini */,
+				F7DA0AED1B748F9D00CCCA1B /* roleData.ini */,
+				F7E0E6CB1B719D6A00A4D140 /* bullet0.png */,
+				F7DA0AEF1B74A54E00CCCA1B /* bullet1.png */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
 				46880B7719C43A67006E1F66 /* CloseSelected.png */,
 				46880B7A19C43A67006E1F66 /* HelloWorld.png */,
+				F7E8C2A41B72F18100851C5E /* life.png */,
+				F7C648291B687E2B00FC54AF /* role0.png */,
+				F7D2685A1B706FB800887AE8 /* role1.png */,
+				F7C648161B68676F00FC54AF /* tile.png */,
+				F7D02A3B1B6B194A003445A9 /* tower1.png */,
+				F7D02A3C1B6B194A003445A9 /* tower2.png */,
+				F7C648181B68677600FC54AF /* map0.tmx */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -517,36 +526,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
-				F7C6482A1B687E2B00FC54AF /* role.png in Resources */,
+				F7C6482A1B687E2B00FC54AF /* role0.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				F7D02A3D1B6B194A003445A9 /* tower1.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
+				F7DA0AF21B74A95B00CCCA1B /* bullet.ini in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
+				F7DA0AF01B74A54E00CCCA1B /* bullet1.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
-				F7D2685B1B706FB800887AE8 /* role2.png in Resources */,
+				F7D2685B1B706FB800887AE8 /* role1.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
-				F7E0E6CC1B719D6A00A4D140 /* bulled.png in Resources */,
+				F7E0E6CC1B719D6A00A4D140 /* bullet0.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
-				F7C648191B68677600FC54AF /* map1.tmx in Resources */,
+				F7C648191B68677600FC54AF /* map0.tmx in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				F7D02A3E1B6B194A003445A9 /* tower2.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				F7C648171B68676F00FC54AF /* tile.png in Resources */,
+				F7DA0AEE1B748F9D00CCCA1B /* roleData.ini in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				F7E8C2A51B72F18100851C5E /* life.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
-				F7CE4B911B6A2E9D006E3E3C /* role1.txt in Resources */,
+				F7CE4B911B6A2E9D006E3E3C /* game.ini in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

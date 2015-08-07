@@ -52,7 +52,7 @@ void Tower::shoot(float delta)
     for (int i=0; i<RoleManager::getInstance()->getRoleVector().size(); i++) {
         if(m_tower->getPosition().getDistance(RoleManager::getInstance()->getRoleVector()[i]->getRoleSpritePos())<=200&&m_bIsMenuTower==false)
         {
-            BulletManager::getInstance()->addBulletToGame("bulled.png", this->getParent(), 6, getPos(),RoleManager::getInstance()->getRoleVector()[i]);
+            BulletManager::getInstance()->addBulletToGame((bulletType)getTowerType(),this->getParent(), 6, getPos(),RoleManager::getInstance()->getRoleVector()[i]);
             return;
         }
     }

@@ -47,3 +47,12 @@ vector<Tower*>& TowerManager::getTowerVector()
 {
     return  m_vTower;
 }
+
+
+void TowerManager::release()
+{
+    for (int i=0; i<m_vTower.size(); i++) {
+        m_vTower[i]->removeFromParentAndCleanup(true);
+    }
+    m_vTower.clear();
+}

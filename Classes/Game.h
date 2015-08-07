@@ -22,27 +22,26 @@ using namespace cocos2d;
 class Game : public cocos2d::Layer
 {
 private:
-    bool m_bIsTowerMenuExist;
-    Tower* m_tower;
-    Map1* m_map;
-    float m_fIntertal;
-    int m_iCount;
-    TowerMenu* m_towerMenu;
-
+    bool m_bIsTowerMenuExist;//塔菜单是否存在
+    Map1* m_map;//地图
+    float m_fIntertal;//角色产生时间延迟
+    int m_iCount;//角色数量
+    TowerMenu* m_towerMenu;//塔菜单
+    int m_iGame;//关卡
+    Vec2 m_vRoleStartPos;//角色起始位置
+    int m_iRoleType;//角色类型、ini读入、角色创建时使用
+    char m_cStartDirection;
+    
 public:
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
-    
-    void readData();//保存数据
-    void writeData();//读取数据
+    void readData();//读取数据
 
     void readInitFile();
     void readTxt();
     void makeRole(float dt);
     void update(float delta);
-    // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::Scene* createScene();
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();

@@ -23,7 +23,7 @@ bool Role::init()
 
 bool Role::load(std::string fileName)
 {
-    m_pTexture = Director::getInstance()->getTextureCache()->addImage("role.png");
+    m_pTexture = Director::getInstance()->getTextureCache()->addImage(fileName);
     if (!m_pTexture) {
         log("role::load ERROR");
         return false;
@@ -150,8 +150,6 @@ void Role::setStartPosition(cocos2d::Vec2 vPos)
 
         //初始化设置默认的角色总血量、当前血量
         m_sprRoleLife = Sprite::create("life.png");
-        setRoleTotalLife(100);
-        setRoleCurrntLife(100);
         addChild(m_sprRoleLife, 0);
     }
 }

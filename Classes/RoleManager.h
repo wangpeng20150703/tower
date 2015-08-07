@@ -19,8 +19,13 @@ class RoleManager:public cocos2d::Node
 private:
     static RoleManager* m_pInstance;
     vector<Role*> m_vRoleVector;
-
+    int m_iDeadRole;
+    
 public:
+    void deadRoleAddOne();
+    int getDeadRole();
+    void setDeadRole(int iDeadRole);
+    void release();
     void update();
     vector<Role*>& getRoleVector();
     static RoleManager* getInstance();

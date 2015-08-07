@@ -22,10 +22,11 @@ private:
     static BulletManager* m_pInstance;
     std::vector<Bullet*> m_vBulletVector;
 public:
+    void release();
     void update();
     std::vector<Bullet*> getBulletVector();
     static BulletManager* getInstance();
-    bool addBulletToGame(std::string fileName,Node* node,int zOrder,Vec2 pos,Role*& role);
+    bool addBulletToGame(bulletType bulletTP,Node* node,int zOrder,Vec2 pos,Role*& role);
 };
 
 #endif /* defined(__tower__BulletManager__) */

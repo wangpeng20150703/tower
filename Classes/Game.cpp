@@ -10,21 +10,6 @@
 
 USING_NS_CC;
 
-Scene* Game::createScene()
-{
-    // 'scene' is an autorelease object
-    auto scene = Scene::create();
-
-    // 'layer' is an autorelease object
-    auto layer = Game::create();
-
-    // add layer as a child to scene
-    scene->addChild(layer);
-
-    // return the scene
-    return scene;
-}
-
 // on "init" you need to initialize your instance
 bool Game::init()
 {
@@ -58,15 +43,8 @@ bool Game::init()
     listener->onTouchEnded = CC_CALLBACK_2(Game::onTouchEnded, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-    //装载地图
-    m_map = Map1::create();
-    m_map->loadMapFile("map1.tmx");
-    addChild(m_map, 1);
-
-    scheduleUpdate();
-
     readInitFile();
-    
+
     return true;
 }
 
@@ -86,18 +64,30 @@ void Game::update(float delta)
     }
     BulletManager::getInstance()->update();
     RoleManager::getInstance()->update();
+
+    if (RoleManager::getInstance()->getDeadRole() == m_iCount) {
+        BulletManager::getInstance()->release();
+        RoleManager::getInstance()->release();
+        TowerManager::getInstance()->release();
+        unschedule(schedule_selector(Game::makeRole));
+
+        Scene* scene = Scene::create();
+        auto layer = Game::create();
+        scene->addChild(layer);
+        Director::getInstance()->replaceScene(TransitionShrinkGrow::create(3.0, scene));
+        this->removeFromParentAndCleanup(true);
+    }
 }
 
 void Game::makeRole(float dt)
 {
+    
     RoleManager::getInstance()->addNewRoleToGame(
-        ROLE1, this, 2, m_map->getMap(), 'd', m_map->getMapPos(), cocos2d::Vec2(96.0f, 410.0f));
+        (roleType)m_iRoleType, this, 2, m_map->getMap(), m_cStartDirection, m_map->getMapPos(), m_vRoleStartPos);
 }
 
 void Game::readInitFile()
 {
-    writeData();
-
     readData();
 
     schedule(schedule_selector(Game::makeRole), m_fIntertal, m_iCount - 1, 0);
@@ -105,34 +95,40 @@ void Game::readInitFile()
 
 void Game::readData()
 {
-    string path = FileUtils::getInstance()->fullPathForFilename("role1.txt");
+    string path = FileUtils::getInstance()->fullPathForFilename("game.ini");
 
-    FILE* pf = fopen(path.c_str(), "rb+");
+    FILE* pf = fopen(path.c_str(), "r");
     if (pf == NULL) {
         CCLOG("open file error.");
         return;
     }
-    fread(&m_fIntertal, sizeof(float), 1, pf);
-    fread(&m_iCount, sizeof(int), 1, pf);
+    //游戏关卡
+    fscanf(pf, "%d", &m_iGame);
+    //角色产生延时
+    fscanf(pf, "%f", &m_fIntertal);
+    //角色数量
+    fscanf(pf, "%d", &m_iCount);
+    //角色起始位置
+    fscanf(pf, "%f", &m_vRoleStartPos.x);
+    fscanf(pf, "%f", &m_vRoleStartPos.y);
+    //角色类型
+    fscanf(pf, "%d", &m_iRoleType);
+    //角色起始方向
+    do{
+        fscanf(pf, "%c", &m_cStartDirection);
+    }while (m_cStartDirection==' ');
+
     fclose(pf);
-}
 
-void Game::writeData()
-{
-    string path = FileUtils::getInstance()->fullPathForFilename("role1.txt");
+    char fileName[16];
+    sprintf(fileName, "map%d.tmx", m_iGame);
 
-    float x;
-    int y;
-    x = 3.0f;
-    y = 100;
-    FILE* pf1 = fopen(path.c_str(), "wb+");
-    if (pf1 == NULL) {
-        CCLOG("open file error.");
-        return;
-    }
-    fwrite(&x, sizeof(float), 1, pf1);
-    fwrite(&y, sizeof(int), 1, pf1);
-    fclose(pf1);
+    //装载地图
+    m_map = Map1::create();
+    m_map->loadMapFile(fileName);
+    addChild(m_map, 1);
+
+    scheduleUpdate();
 }
 
 void Game::onTouchEnded(Touch* touch, Event* event)

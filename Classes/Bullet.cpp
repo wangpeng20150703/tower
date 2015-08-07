@@ -7,6 +7,7 @@
 //
 
 #include "Bullet.h"
+#include "BulletManager.h"
 
 bool Bullet::init()
 {
@@ -31,6 +32,7 @@ void Bullet::update(float delta)
         m_vDirection.set(m_bulletSprite->getPosition(), m_roleAim->getCollidePoint());
     }
     m_vDirection.normalize();
+    
     m_vDirection*=3;
     m_bulletSprite->setPosition(m_bulletSprite->getPosition()+m_vDirection);
 }
@@ -56,4 +58,14 @@ Vec2 Bullet::getPos()
 Role*& Bullet::getRole()
 {
     return  m_roleAim;
+}
+
+
+void Bullet::setAtk(int atk)
+{
+    m_iAtk=atk;
+}
+int Bullet::getAtk()
+{
+    return m_iAtk;
 }

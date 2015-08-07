@@ -19,8 +19,6 @@ bool Map1::init()
     {
         return false;
     }
-    
-    
     return true;
 }
 

@@ -18,14 +18,32 @@ BulletManager* BulletManager::getInstance()
     return m_pInstance;
 }
 
-bool BulletManager::addBulletToGame(std::string fileName, Node* node, int zOrder, Vec2 pos, Role*& role)
+bool BulletManager::addBulletToGame(bulletType bulletTP, Node* node, int zOrder, Vec2 pos, Role*& role)
 {
     auto temp = Bullet::create();
+    //temp->load(fileName);
+
+
+    
+    std::string path=FileUtils::getInstance()->fullPathForFilename("bullet.ini");
+    FILE* pf=fopen(path.c_str(), "r");
+    int type;
+    char fileName[16];
+    int atk;
+    do
+    {
+        fscanf(pf,"%d",&type);
+        fscanf(pf, "%d",&atk);
+    }while(type!=bulletTP);
+    sprintf(fileName, "bullet%d.png",type);
     temp->load(fileName);
-    node->addChild(temp, zOrder);
+    temp->setAtk(atk);
     temp->setPos(pos);
     temp->setRole(role);
+    node->addChild(temp, zOrder);
     m_vBulletVector.push_back(temp);
+    
+    
     return true;
 }
 
@@ -45,7 +63,7 @@ void BulletManager::update()
         if ((*it)->getRole() != NULL) {
             //如果与角色碰撞则角色减少当前血量，子弹删除
             if ((*it)->getRole()->getCollideRect().containsPoint((*it)->getPos())) {
-                (*it)->getRole()->setRoleCurrntLife((*it)->getRole()->getRoleCurrntLife() - 15);
+                (*it)->getRole()->setRoleCurrntLife((*it)->getRole()->getRoleCurrntLife() - (*it)->getAtk());
 
                 //如果当前子弹碰撞的角色的血量为0
                 if ((*it)->getRole()->getRoleCurrntLife() <= 0) {
@@ -56,6 +74,10 @@ void BulletManager::update()
                         if (*itR == (*it)->getRole()) {
                             (*itR)->removeFromParentAndCleanup(true);
                             itR = RoleManager::getInstance()->getRoleVector().erase(itR);
+                            
+                            //角色死亡数加一
+                            RoleManager::getInstance()->deadRoleAddOne();
+                            
                             //遍历子弹数组
                             for (std::vector<Bullet*>::iterator itB = m_vBulletVector.begin();
                                  itB != m_vBulletVector.end();) {
@@ -81,4 +103,13 @@ void BulletManager::update()
         }
         it++;
     }
+}
+
+
+void BulletManager::release()
+{
+    for (int i=0; i<m_vBulletVector.size(); i++) {
+        m_vBulletVector[i]->removeFromParentAndCleanup(true);
+    }
+    m_vBulletVector.clear();
 }
