@@ -20,30 +20,30 @@ BulletManager* BulletManager::getInstance()
 
 bool BulletManager::addBulletToGame(bulletType bulletTP, Node* node, int zOrder, Vec2 pos, Role*& role)
 {
-    auto temp = Bullet::create();
-    //temp->load(fileName);
+    std::string path = FileUtils::getInstance()->fullPathForFilename("bullet.ini");
+    FILE* pf = fopen(path.c_str(), "r");
 
+    if (!pf) {
+        log("OpenBulletFileError");
+    }
 
-    
-    std::string path=FileUtils::getInstance()->fullPathForFilename("bullet.ini");
-    FILE* pf=fopen(path.c_str(), "r");
     int type;
     char fileName[16];
     int atk;
-    do
-    {
-        fscanf(pf,"%d",&type);
-        fscanf(pf, "%d",&atk);
-    }while(type!=bulletTP);
-    sprintf(fileName, "bullet%d.png",type);
+    do {
+        fscanf(pf, "%d", &type);
+        fscanf(pf, "%d", &atk);
+    } while (type != bulletTP);
+    sprintf(fileName, "bullet%d.png", type);
+
+    auto temp = Bullet::create();
     temp->load(fileName);
     temp->setAtk(atk);
     temp->setPos(pos);
     temp->setRole(role);
     node->addChild(temp, zOrder);
     m_vBulletVector.push_back(temp);
-    
-    
+
     return true;
 }
 
@@ -59,7 +59,7 @@ void BulletManager::update()
     }
     //遍历子弹数组，
     for (std::vector<Bullet*>::iterator it = m_vBulletVector.begin(); it != m_vBulletVector.end();) {
-         //如果子弹锁定的目标角色已经
+        //如果子弹锁定的目标角色已经
         if ((*it)->getRole() != NULL) {
             //如果与角色碰撞则角色减少当前血量，子弹删除
             if ((*it)->getRole()->getCollideRect().containsPoint((*it)->getPos())) {
@@ -74,14 +74,14 @@ void BulletManager::update()
                         if (*itR == (*it)->getRole()) {
                             (*itR)->removeFromParentAndCleanup(true);
                             itR = RoleManager::getInstance()->getRoleVector().erase(itR);
-                            
+
                             //角色死亡数加一
                             RoleManager::getInstance()->deadRoleAddOne();
-                            
+
                             //遍历子弹数组
                             for (std::vector<Bullet*>::iterator itB = m_vBulletVector.begin();
                                  itB != m_vBulletVector.end();) {
-                                //如果子弹列表中还
+                                //如果子弹列表中还存在指向该已经死亡的角色，则使该子弹所记住的角色设置为空
                                 if ((*itB)->getRole() == (*it)->getRole() && (*it) != (*itB)) {
                                     //                                (*itB)->removeFromParentAndCleanup(true);
                                     //                                itB = m_vBulletVector.erase(itB);
@@ -105,10 +105,9 @@ void BulletManager::update()
     }
 }
 
-
 void BulletManager::release()
 {
-    for (int i=0; i<m_vBulletVector.size(); i++) {
+    for (int i = 0; i < m_vBulletVector.size(); i++) {
         m_vBulletVector[i]->removeFromParentAndCleanup(true);
     }
     m_vBulletVector.clear();

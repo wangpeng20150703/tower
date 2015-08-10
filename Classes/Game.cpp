@@ -9,7 +9,7 @@
 #include "Game.h"
 
 USING_NS_CC;
-int Game::m_iCurrntGame=0;
+int Game::m_iCurrntGame = 0;
 // on "init" you need to initialize your instance
 bool Game::init()
 {
@@ -46,7 +46,7 @@ bool Game::init()
     readInitFile();
 
     schedule(schedule_selector(Game::makeRole), m_fIntertal, m_iCount - 1, 0);
-    
+
     return true;
 }
 
@@ -83,14 +83,12 @@ void Game::update(float delta)
         scene->addChild(layer);
         Director::getInstance()->replaceScene(TransitionShrinkGrow::create(3.0, scene));
         this->removeFromParentAndCleanup(true);
-    }
-    else if(RoleManager::getInstance()->getSuccessRole()==2)
-    {
+    } else if (RoleManager::getInstance()->getSuccessRole() == 2) {
         BulletManager::getInstance()->release();
         RoleManager::getInstance()->release();
         TowerManager::getInstance()->release();
         unschedule(schedule_selector(Game::makeRole));
-        
+
         Scene* scene = Scene::create();
         auto layer = Game::create();
         scene->addChild(layer);
@@ -114,8 +112,6 @@ void Game::makeRole(float dt)
 void Game::readInitFile()
 {
     readData();
-
-    
 }
 
 void Game::readData()
@@ -163,15 +159,18 @@ void Game::readData()
 
 void Game::onTouchEnded(Touch* touch, Event* event)
 {
-    if (m_bIsTowerMenuExist == false) {
-        m_bIsTowerMenuExist = true;
-        Vec2 v = touch->getLocation();
-        TowerMenuManager::getInstance()->addNewTowerMenuToGame(this, 4, v, m_map->getMap(), m_map->getMap()->getPosition());
-    } else {
-        if (TowerMenuManager::getInstance()->getTowerMenu()) {
-            TowerMenuManager::getInstance()->release();
+    if (m_map->getMap()->getBoundingBox().containsPoint(m_map->convertToNodeSpace(touch->getLocation()))) {
+        if (m_bIsTowerMenuExist == false) {
+            m_bIsTowerMenuExist = true;
+            Vec2 v = touch->getLocation();
+            TowerMenuManager::getInstance()->addNewTowerMenuToGame(
+                this, 4, v, m_map->getMap(), m_map->getMap()->getPosition());
+        } else {
+            if (TowerMenuManager::getInstance()->getTowerMenu()) {
+                TowerMenuManager::getInstance()->release();
+            }
+            m_bIsTowerMenuExist = false;
         }
-        m_bIsTowerMenuExist = false;
     }
 }
 

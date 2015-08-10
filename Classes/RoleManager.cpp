@@ -31,6 +31,9 @@ bool RoleManager::addNewRoleToGame(roleType tp,
     //读取角色配置文件
     std::string path = FileUtils::getInstance()->fullPathForFilename("roleData.ini");
     FILE* pf = fopen(path.c_str(), "r");
+    if (!pf) {
+        log("OpenRoleFileError");
+    }
     int type;
     char fileName[16];
     int life;
