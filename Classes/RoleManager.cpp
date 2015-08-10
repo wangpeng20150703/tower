@@ -23,10 +23,11 @@ bool RoleManager::addNewRoleToGame(roleType tp,
                                    cocos2d::experimental::TMXTiledMap* map,
                                    char dir,
                                    cocos2d::Vec2 mapPos,
-                                   cocos2d::Vec2 roleStartPos)
+                                   cocos2d::Vec2 roleStartPos,
+                                   Vec2 roleEndPos)
 {
     auto role = Role::create();
-    
+
     //读取角色配置文件
     std::string path = FileUtils::getInstance()->fullPathForFilename("roleData.ini");
     FILE* pf = fopen(path.c_str(), "r");
@@ -40,16 +41,17 @@ bool RoleManager::addNewRoleToGame(roleType tp,
 
     sprintf(fileName, "role%d.png", type);
     role->load(fileName);
-    
+
     //添加角色传递信息
     role->setMap(map);
     role->setCurrntDirection(dir);
     role->getMapPos(mapPos);
     role->setStartPosition(roleStartPos);  //这里的位置应该为在地图上的相对位置，即忽略地图相对屏幕的移动
-    
+    m_vRoleEndPos = roleEndPos;
+
     role->setRoleTotalLife(life);
     role->setRoleCurrntLife(life);
-    
+
     //添加角色到父层
     node->addChild(role, zOrder);
     m_vRoleVector.push_back(role);
@@ -69,9 +71,11 @@ void RoleManager::update()
     }
     for (std::vector<Role*>::iterator it = m_vRoleVector.begin(); it != m_vRoleVector.end();) {
         auto x = (*it)->getRolePosInMapTile();
-        if ((int)((*it)->getRolePosInMapTile().x) == 10 && (int)((*it)->getRolePosInMapTile().y) == 3) {
+        if ((int)((*it)->getRolePosInMapTile().x) == m_vRoleEndPos.x &&
+            (int)((*it)->getRolePosInMapTile().y) == m_vRoleEndPos.y) {
             (*it)->removeFromParentAndCleanup(true);
             it = m_vRoleVector.erase(it);
+            m_iSuccessRole++;
             continue;
         }
         it++;
@@ -84,6 +88,7 @@ void RoleManager::release()
         m_vRoleVector[i]->removeFromParentAndCleanup(true);
     }
     m_iDeadRole = 0;
+    m_iSuccessRole=0;
     m_vRoleVector.clear();
 }
 
@@ -100,4 +105,14 @@ void RoleManager::setDeadRole(int iDeadRole)
 void RoleManager::deadRoleAddOne()
 {
     m_iDeadRole++;
+}
+
+
+void RoleManager::successRoleOne()
+{
+    m_iSuccessRole++;
+}
+int RoleManager::getSuccessRole()
+{
+    return m_iSuccessRole;
 }

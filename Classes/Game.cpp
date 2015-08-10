@@ -9,7 +9,7 @@
 #include "Game.h"
 
 USING_NS_CC;
-
+int Game::m_iCurrntGame=0;
 // on "init" you need to initialize your instance
 bool Game::init()
 {
@@ -45,6 +45,8 @@ bool Game::init()
 
     readInitFile();
 
+    schedule(schedule_selector(Game::makeRole), m_fIntertal, m_iCount - 1, 0);
+    
     return true;
 }
 
@@ -71,6 +73,24 @@ void Game::update(float delta)
         TowerManager::getInstance()->release();
         unschedule(schedule_selector(Game::makeRole));
 
+        m_iCurrntGame++;
+        if (m_iCurrntGame == 2) {
+            m_iCurrntGame = 0;
+        }
+
+        Scene* scene = Scene::create();
+        auto layer = Game::create();
+        scene->addChild(layer);
+        Director::getInstance()->replaceScene(TransitionShrinkGrow::create(3.0, scene));
+        this->removeFromParentAndCleanup(true);
+    }
+    else if(RoleManager::getInstance()->getSuccessRole()==2)
+    {
+        BulletManager::getInstance()->release();
+        RoleManager::getInstance()->release();
+        TowerManager::getInstance()->release();
+        unschedule(schedule_selector(Game::makeRole));
+        
         Scene* scene = Scene::create();
         auto layer = Game::create();
         scene->addChild(layer);
@@ -81,16 +101,21 @@ void Game::update(float delta)
 
 void Game::makeRole(float dt)
 {
-    
-    RoleManager::getInstance()->addNewRoleToGame(
-        (roleType)m_iRoleType, this, 2, m_map->getMap(), m_cStartDirection, m_map->getMapPos(), m_vRoleStartPos);
+    RoleManager::getInstance()->addNewRoleToGame((roleType)m_iRoleType,
+                                                 this,
+                                                 2,
+                                                 m_map->getMap(),
+                                                 m_cStartDirection,
+                                                 m_map->getMapPos(),
+                                                 m_vRoleStartPos,
+                                                 m_vRoleEndPos);
 }
 
 void Game::readInitFile()
 {
     readData();
 
-    schedule(schedule_selector(Game::makeRole), m_fIntertal, m_iCount - 1, 0);
+    
 }
 
 void Game::readData()
@@ -102,21 +127,26 @@ void Game::readData()
         CCLOG("open file error.");
         return;
     }
-    //游戏关卡
-    fscanf(pf, "%d", &m_iGame);
-    //角色产生延时
-    fscanf(pf, "%f", &m_fIntertal);
-    //角色数量
-    fscanf(pf, "%d", &m_iCount);
-    //角色起始位置
-    fscanf(pf, "%f", &m_vRoleStartPos.x);
-    fscanf(pf, "%f", &m_vRoleStartPos.y);
-    //角色类型
-    fscanf(pf, "%d", &m_iRoleType);
-    //角色起始方向
-    do{
-        fscanf(pf, "%c", &m_cStartDirection);
-    }while (m_cStartDirection==' ');
+    do {
+        //游戏关卡
+        fscanf(pf, "%d", &m_iGame);
+        //角色产生延时
+        fscanf(pf, "%f", &m_fIntertal);
+        //角色数量
+        fscanf(pf, "%d", &m_iCount);
+        //角色起始位置
+        fscanf(pf, "%f", &m_vRoleStartPos.x);
+        fscanf(pf, "%f", &m_vRoleStartPos.y);
+        //角色类型
+        fscanf(pf, "%d", &m_iRoleType);
+        //角色起始方向
+        do {
+            fscanf(pf, "%c", &m_cStartDirection);
+        } while (m_cStartDirection == ' ');
+        //角色终点
+        fscanf(pf, "%f", &m_vRoleEndPos.x);
+        fscanf(pf, "%f", &m_vRoleEndPos.y);
+    } while (m_iCurrntGame != m_iGame);
 
     fclose(pf);
 

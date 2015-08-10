@@ -142,6 +142,9 @@ int Role::getMapDate(cocos2d::Vec2 v)
 //设置开始位置前需要调用setRoleTotalLofe(int life)、setRoleCurrntLofe(int life)设置角色当前血量以及总血量
 void Role::setStartPosition(cocos2d::Vec2 vPos)
 {
+    vPos.x=(vPos.x+0.5)*m_fTileWidth;
+    vPos.y=(vPos.y+0.4)*m_fTileHeight;
+    
     vPos = vPos + m_vMapPos;
     m_sprCurrntDirection->setPosition(vPos);
     //设置更新

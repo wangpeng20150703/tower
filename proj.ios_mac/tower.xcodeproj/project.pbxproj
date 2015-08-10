@@ -84,6 +84,7 @@
 		F7DA0AEE1B748F9D00CCCA1B /* roleData.ini in Resources */ = {isa = PBXBuildFile; fileRef = F7DA0AED1B748F9D00CCCA1B /* roleData.ini */; };
 		F7DA0AF01B74A54E00CCCA1B /* bullet1.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DA0AEF1B74A54E00CCCA1B /* bullet1.png */; };
 		F7DA0AF21B74A95B00CCCA1B /* bullet.ini in Resources */ = {isa = PBXBuildFile; fileRef = F7DA0AF11B74A95B00CCCA1B /* bullet.ini */; };
+		F7DA0AF41B74B89200CCCA1B /* map1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F7DA0AF31B74B89200CCCA1B /* map1.tmx */; };
 		F7E0E6CC1B719D6A00A4D140 /* bullet0.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E0E6CB1B719D6A00A4D140 /* bullet0.png */; };
 		F7E0E6CF1B719EA200A4D140 /* BulletManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E0E6CD1B719EA200A4D140 /* BulletManager.cpp */; };
 		F7E8C2A51B72F18100851C5E /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E8C2A41B72F18100851C5E /* life.png */; };
@@ -205,6 +206,7 @@
 		F7DA0AED1B748F9D00CCCA1B /* roleData.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = roleData.ini; sourceTree = "<group>"; };
 		F7DA0AEF1B74A54E00CCCA1B /* bullet1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet1.png; sourceTree = "<group>"; };
 		F7DA0AF11B74A95B00CCCA1B /* bullet.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bullet.ini; sourceTree = "<group>"; };
+		F7DA0AF31B74B89200CCCA1B /* map1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map1.tmx; sourceTree = "<group>"; };
 		F7E0E6CB1B719D6A00A4D140 /* bullet0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet0.png; sourceTree = "<group>"; };
 		F7E0E6CD1B719EA200A4D140 /* BulletManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BulletManager.cpp; sourceTree = "<group>"; };
 		F7E0E6CE1B719EA200A4D140 /* BulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletManager.h; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7DA0AF31B74B89200CCCA1B /* map1.tmx */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
 				F7DA0AF11B74A95B00CCCA1B /* bullet.ini */,
@@ -547,6 +550,7 @@
 				F7C648191B68677600FC54AF /* map0.tmx in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				F7D02A3E1B6B194A003445A9 /* tower2.png in Resources */,
+				F7DA0AF41B74B89200CCCA1B /* map1.tmx in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
