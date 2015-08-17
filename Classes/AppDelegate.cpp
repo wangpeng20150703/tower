@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
-#include "Game.h"
+#include "Start.h"
+#include "cocostudio/CocoStudio.h"
 
 USING_NS_CC;
 
@@ -49,18 +50,18 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto designSize = Size(960, 640);
 
     //屏幕适配
-    glview->setDesignResolutionSize(designSize.width, designSize.height, ResolutionPolicy::EXACT_FIT);
+    glview->setDesignResolutionSize(designSize.width, designSize.height, ResolutionPolicy::SHOW_ALL);
 
     register_all_packages();
 
     // create a scene. it's an autorelease object
 
-    auto scene = Scene::create();
-    auto layer = Game::create();
-    scene->addChild(layer);
-
-    // run
-    director->runWithScene(scene);
+        auto scene = Scene::create();
+        //auto layer=UI::create();
+        auto layer=Start::createScene();
+        scene->addChild(layer);
+        // run
+        director->runWithScene(scene);
 
     return true;
 }

@@ -359,7 +359,9 @@ obj/local/armeabi/objs-debug/cocos2dcpp_shared/__/__/Classes/Tower.o: \
  /Users/wp/tower/proj.android/../cocos2d/cocos/3d/../deprecated/CCString.h \
  /Users/wp/tower/proj.android/../cocos2d/cocos/3d/../deprecated/CCNotificationCenter.h \
  /Users/wp/tower/proj.android/../cocos2d/cocos/3d/../deprecated/CCDeprecated.h \
- jni/../../Classes/Map1.h
+ jni/../../Classes/Map1.h jni/../../Classes/RoleManager.h \
+ jni/../../Classes/Role.h jni/../../Classes/BulletManager.h \
+ jni/../../Classes/Bullet.h
 
 jni/../../Classes/Tower.h:
 
@@ -1082,3 +1084,11 @@ jni/../../Classes/Tower.h:
 /Users/wp/tower/proj.android/../cocos2d/cocos/3d/../deprecated/CCDeprecated.h:
 
 jni/../../Classes/Map1.h:
+
+jni/../../Classes/RoleManager.h:
+
+jni/../../Classes/Role.h:
+
+jni/../../Classes/BulletManager.h:
+
+jni/../../Classes/Bullet.h:

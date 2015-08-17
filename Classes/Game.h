@@ -16,10 +16,13 @@
 #include "RoleManager.h"
 #include "TowerMenuManager.h"
 
+#include "cocostudio/CocoStudio.h"
+#include "UICallBackReader.h"
+
 using namespace std;
 using namespace cocos2d;
 
-class Game : public cocos2d::Layer
+class Game : public Layer
 {
 private:
     static int m_iCurrntGame;
@@ -36,13 +39,22 @@ private:
     Vec2 m_vRoleEndPos;
     
 public:
+    static cocos2d::Scene* createScene();
+    
+    virtual void onExit();
+    
+    void back(Ref* obj);
+    
+    static int getCurrntGame();
+    static void setCurrntGame(int game);
+    
+    void release();
+    
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
-    void readData();//读取数据
+    void readData(int game);//读取数据
 
-    void readInitFile();
-    void readTxt();
     void makeRole(float dt);
     void update(float delta);
 

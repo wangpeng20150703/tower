@@ -359,8 +359,10 @@ obj/local/armeabi/objs-debug/cocos2dcpp_shared/__/__/Classes/TowerMenu.o: \
  /Users/wp/tower/proj.android/../cocos2d/cocos/3d/../deprecated/CCString.h \
  /Users/wp/tower/proj.android/../cocos2d/cocos/3d/../deprecated/CCNotificationCenter.h \
  /Users/wp/tower/proj.android/../cocos2d/cocos/3d/../deprecated/CCDeprecated.h \
- jni/../../Classes/Tower1.h jni/../../Classes/Tower.h \
- jni/../../Classes/Map1.h jni/../../Classes/Tower2.h
+ jni/../../Classes/TowerManager.h jni/../../Classes/Tower.h \
+ jni/../../Classes/Map1.h jni/../../Classes/RoleManager.h \
+ jni/../../Classes/Role.h jni/../../Classes/BulletManager.h \
+ jni/../../Classes/Bullet.h jni/../../Classes/TowerMenuManager.h
 
 jni/../../Classes/TowerMenu.h:
 
@@ -1082,10 +1084,18 @@ jni/../../Classes/TowerMenu.h:
 
 /Users/wp/tower/proj.android/../cocos2d/cocos/3d/../deprecated/CCDeprecated.h:
 
-jni/../../Classes/Tower1.h:
+jni/../../Classes/TowerManager.h:
 
 jni/../../Classes/Tower.h:
 
 jni/../../Classes/Map1.h:
 
-jni/../../Classes/Tower2.h:
+jni/../../Classes/RoleManager.h:
+
+jni/../../Classes/Role.h:
+
+jni/../../Classes/BulletManager.h:
+
+jni/../../Classes/Bullet.h:
+
+jni/../../Classes/TowerMenuManager.h:

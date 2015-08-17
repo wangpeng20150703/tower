@@ -7,10 +7,31 @@
 //
 
 #include "Game.h"
+#include "UI.h"
+#include "SimpleAudioEngine.h"
+
+using namespace CocosDenshion;
 
 USING_NS_CC;
 int Game::m_iCurrntGame = 0;
 // on "init" you need to initialize your instance
+
+cocos2d::Scene* Game::createScene()
+{
+    // 'scene' is an autorelease object
+    auto scene = cocos2d::Scene::create();
+    
+    // 'layer' is an autorelease object
+    auto layer = Game::create();
+    
+    layer->readData(m_iCurrntGame);
+    // add layer as a child to scene
+    scene->addChild(layer);
+    
+    // return the scene
+    return scene;
+}
+
 bool Game::init()
 {
     //////////////////////////////
@@ -42,23 +63,35 @@ bool Game::init()
     listener->onTouchMoved = CC_CALLBACK_2(Game::onTouchMoved, this);
     listener->onTouchEnded = CC_CALLBACK_2(Game::onTouchEnded, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-
-    readInitFile();
-
-    schedule(schedule_selector(Game::makeRole), m_fIntertal, m_iCount - 1, 0);
+    
+    //背景音乐加载
+    SimpleAudioEngine::getInstance()->preloadBackgroundMusic("sounds/background.wav");
 
     return true;
 }
 
 void Game::menuCloseCallback(Ref* pSender)
 {
-    Director::getInstance()->end();
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
+    Layer::onExit();
+    UI::getInstance()->menu();
+    Director::getInstance()->getRunningScene()->addChild(UI::getInstance(),1);
+    NotificationCenter::getInstance()->addObserver(this,CC_CALLFUNCO_SELECTOR(Game::back), "back",nullptr);
 }
 
+void Game::onExit()
+{
+    Layer::onExit();
+    release();
+}
+
+void Game::back(Ref* obj)
+{
+    Layer::onEnter();
+    UI::getInstance()->removeFromParentAndCleanup(true);
+    NotificationCenter::getInstance()->removeObserver(this, "back");
+}
+
+//读取信息后创建、release后删除
 void Game::update(float delta)
 {
     if (RoleManager::getInstance()->getRoleVector().empty()) {
@@ -67,33 +100,31 @@ void Game::update(float delta)
     BulletManager::getInstance()->update();
     RoleManager::getInstance()->update();
 
+    //过关
     if (RoleManager::getInstance()->getDeadRole() == m_iCount) {
-        BulletManager::getInstance()->release();
-        RoleManager::getInstance()->release();
-        TowerManager::getInstance()->release();
-        unschedule(schedule_selector(Game::makeRole));
+        release();
 
         m_iCurrntGame++;
         if (m_iCurrntGame == 2) {
             m_iCurrntGame = 0;
         }
-
+        
         Scene* scene = Scene::create();
-        auto layer = Game::create();
-        scene->addChild(layer);
+        //auto layer = UI::create();
+        scene->addChild(UI::getInstance());
+        UI::getInstance()->nextGame();
         Director::getInstance()->replaceScene(TransitionShrinkGrow::create(3.0, scene));
-        this->removeFromParentAndCleanup(true);
-    } else if (RoleManager::getInstance()->getSuccessRole() == 2) {
-        BulletManager::getInstance()->release();
-        RoleManager::getInstance()->release();
-        TowerManager::getInstance()->release();
-        unschedule(schedule_selector(Game::makeRole));
-
+    }
+    //失败
+    else if (RoleManager::getInstance()->getSuccessRole() == 2) {
+        
+        release();
+  
         Scene* scene = Scene::create();
-        auto layer = Game::create();
-        scene->addChild(layer);
+        scene->addChild(UI::getInstance());
+        UI::getInstance()->gameover();
         Director::getInstance()->replaceScene(TransitionShrinkGrow::create(3.0, scene));
-        this->removeFromParentAndCleanup(true);
+     
     }
 }
 
@@ -109,12 +140,7 @@ void Game::makeRole(float dt)
                                                  m_vRoleEndPos);
 }
 
-void Game::readInitFile()
-{
-    readData();
-}
-
-void Game::readData()
+void Game::readData(int game)
 {
     string path = FileUtils::getInstance()->fullPathForFilename("game.ini");
 
@@ -142,7 +168,7 @@ void Game::readData()
         //角色终点
         fscanf(pf, "%f", &m_vRoleEndPos.x);
         fscanf(pf, "%f", &m_vRoleEndPos.y);
-    } while (m_iCurrntGame != m_iGame);
+    } while (game != m_iGame);
 
     fclose(pf);
 
@@ -155,6 +181,10 @@ void Game::readData()
     addChild(m_map, 1);
 
     scheduleUpdate();
+    
+    schedule(schedule_selector(Game::makeRole), m_fIntertal, m_iCount - 1, 0);
+    
+    SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/background.wav", true); //播放背景音乐
 }
 
 void Game::onTouchEnded(Touch* touch, Event* event)
@@ -181,4 +211,24 @@ bool Game::onTouchBegan(Touch* touch, Event* event)
 
 void Game::onTouchMoved(Touch* touch, Event* event)
 {
+}
+
+
+void Game::release()
+{
+    BulletManager::getInstance()->release();
+    RoleManager::getInstance()->release();
+    TowerManager::getInstance()->release();
+    unschedule(schedule_selector(Game::makeRole));
+    //this->removeFromParentAndCleanup(true);
+}
+
+
+int Game::getCurrntGame()
+{
+    return m_iCurrntGame;
+}
+void Game::setCurrntGame(int game)
+{
+    m_iCurrntGame=game;
 }
