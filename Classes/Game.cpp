@@ -10,6 +10,10 @@
 #include "UI.h"
 #include "SimpleAudioEngine.h"
 
+#include "NextGame.h"
+#include "GameOver.h"
+#include "MenuScene.h"
+
 using namespace CocosDenshion;
 
 USING_NS_CC;
@@ -73,21 +77,22 @@ bool Game::init()
 void Game::menuCloseCallback(Ref* pSender)
 {
     Layer::onExit();
-    UI::getInstance()->menu();
-    Director::getInstance()->getRunningScene()->addChild(UI::getInstance(),1);
-    NotificationCenter::getInstance()->addObserver(this,CC_CALLFUNCO_SELECTOR(Game::back), "back",nullptr);
+    auto layer = MenuScene::create();
+    Director::getInstance()->getRunningScene()->addChild(layer,1);
+    NotificationCenter::getInstance()->addObserver(
+                                                   this, CC_CALLFUNCO_SELECTOR(Game::back), "back", nullptr);
 }
 
 void Game::onExit()
 {
     Layer::onExit();
     release();
+    NotificationCenter::getInstance()->removeObserver(this, "back");
 }
 
 void Game::back(Ref* obj)
 {
-    Layer::onEnter();
-    UI::getInstance()->removeFromParentAndCleanup(true);
+    this->onEnter();
     NotificationCenter::getInstance()->removeObserver(this, "back");
 }
 
@@ -103,27 +108,18 @@ void Game::update(float delta)
     //过关
     if (RoleManager::getInstance()->getDeadRole() == m_iCount) {
         release();
-
-        m_iCurrntGame++;
-        if (m_iCurrntGame == 2) {
-            m_iCurrntGame = 0;
-        }
         
-        Scene* scene = Scene::create();
-        //auto layer = UI::create();
-        scene->addChild(UI::getInstance());
-        UI::getInstance()->nextGame();
-        Director::getInstance()->replaceScene(TransitionShrinkGrow::create(3.0, scene));
+        auto layer=NextGame::create();
+        Director::getInstance()->getRunningScene()->addChild(layer,1);
+        
     }
     //失败
     else if (RoleManager::getInstance()->getSuccessRole() == 2) {
         
         release();
   
-        Scene* scene = Scene::create();
-        scene->addChild(UI::getInstance());
-        UI::getInstance()->gameover();
-        Director::getInstance()->replaceScene(TransitionShrinkGrow::create(3.0, scene));
+        auto layer=GameOver::create();
+        Director::getInstance()->getRunningScene()->addChild(layer,1);
      
     }
 }
@@ -220,7 +216,7 @@ void Game::release()
     RoleManager::getInstance()->release();
     TowerManager::getInstance()->release();
     unschedule(schedule_selector(Game::makeRole));
-    //this->removeFromParentAndCleanup(true);
+    unscheduleUpdate();
 }
 
 

@@ -1,54 +1,3 @@
-
-//    //触摸抬起
-//    if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
-//    {
-//        //结束按钮：Logout
-//        if (((Node*)object)->getName()=="Button_logout") {
-//            //UI中的gameoverAPI接受消息
-//            NotificationCenter::getInstance()->postNotification("end", NULL);
-//        }
-//        //开始按钮：Login
-//        else if(((Node*)object)->getName()=="Button_login")
-//        {
-//            //创建游戏
-//            releaseRunningScene();
-//            auto layer = Game::create();
-//            layer->readData(Game::getCurrntGame());
-//            Director::getInstance()->getRunningScene()->addChild(layer);
-//        }
-//        //失败后重新开始按钮
-//        else if(((Node*)object)->getName()=="Button_restart")
-//        {
-//            releaseRunningScene();
-//            auto layer = Game::create();
-//            layer->readData(Game::getCurrntGame());
-//            Director::getInstance()->getRunningScene()->addChild(layer);
-//        }
-//        //过关后进入下一关按钮
-//        else if(((Node*)object)->getName()=="Button_nextGame")
-//        {
-//            if (Director::getInstance()->getRunningScene()) {
-//                Director::getInstance()->getRunningScene()->removeAllChildren();
-//            }
-//            auto layer = Game::create();
-//            layer->readData(Game::getCurrntGame());
-//            Director::getInstance()->getRunningScene()->addChild(layer);
-//        }
-//        else if(((Node*)object)->getName()=="Button_toStart")
-//        {
-//            releaseRunningScene();
-//            Scene* scene = Scene::create();
-//            scene->addChild(UI::getInstance());
-//            UI::getInstance()->start();
-//            Director::getInstance()->replaceScene(TransitionShrinkGrow::create(3.0, scene));
-//        }
-//        else if(((Node*)object)->getName()=="Button_back")
-//        {
-//            NotificationCenter::getInstance()->postNotification("back");
-//        }
-//    }
-//}
-
 //
 //  UICallBack.cpp
 //  cocostudio
@@ -78,7 +27,7 @@ UICallBack::UICallBack()
 Widget::ccWidgetTouchCallback UICallBack::onLocateTouchCallback(const string& callBackName)
 {
     CCLOG("onTouchLogoutEnd");
-    if (callBackName == "onTouch")  //判断事件名，返回对应的函数。下同
+    if (callBackName != "")  //判断事件名，返回对应的函数。下同
     {
         return CC_CALLBACK_2(UICallBack::onTouch, this);
     }
@@ -95,7 +44,7 @@ void UICallBack::onTouch(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
             UICallback callback = UICallBack::getTouchUICallback(object);
             if (callback.enable) {
                 CCLOG("callback name : %s", callback.name.c_str());
-                NotificationCenter::getInstance()->postNotification(callback.name);
+                NotificationCenter::getInstance()->postNotification(callback.name,object);
             }
             break;
         }

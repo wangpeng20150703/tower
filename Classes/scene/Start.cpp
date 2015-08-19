@@ -40,21 +40,18 @@ bool Start::init()
 void Start::notificationHandler(Ref* pSender)
 {
     Node* node = dynamic_cast<Node*>(pSender);
+    auto name = node->getName();
     UICallback callback = UICallBack::getTouchUICallback(pSender);
     if (callback.enable) {
-        if (callback.name.compare("onTouch") == 0) {
-            if (node->getName().compare("Button_login") == 0) {
-                Director::getInstance()->replaceScene(Game::createScene());
-            }
-            if (node->getName().compare("Button_logout") == 0) {
-                //删除所有的child包括UI
-                Director::getInstance()->getRunningScene()->removeAllChildren();
-                Director::getInstance()->end();
+        if (callback.name.compare("onTouchLogin") == 0) {
+            Director::getInstance()->replaceScene(Game::createScene());
+        } else if (callback.name.compare("onTouchLogOut") == 0) {
+            Director::getInstance()->getRunningScene()->removeAllChildren();
+            Director::getInstance()->end();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-                exit(0);
+            exit(0);
 #endif
-            }
         }
         return;
     }
