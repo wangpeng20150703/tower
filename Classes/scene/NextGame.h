@@ -21,7 +21,6 @@ public:
     CREATE_FUNC(NextGame);
     
 private:
-    std::string mode;
 };
 
 #endif /* defined(__tower__NextGame__) */

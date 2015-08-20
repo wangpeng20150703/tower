@@ -24,9 +24,7 @@ public:
     
     CREATE_FUNC(Start);
     
-private:
-    std::string mode;
-};
+private:};
 
 
 #endif /* defined(__tower__start__) */

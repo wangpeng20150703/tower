@@ -21,7 +21,6 @@ public:
     CREATE_FUNC(GameOver);
     
 private:
-    std::string mode;
 };
 
 #endif /* defined(__tower__GameOver__) */
