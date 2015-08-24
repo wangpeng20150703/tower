@@ -20,6 +20,10 @@ bool Tower::init()
 
 void Tower::setPos(Vec2 v)
 {
+    if (m_tower==NULL) {
+        log("towerSpriteIsNull,TowerSetPosReturn");
+        return;
+    }
     m_tower->setPosition(v);
     //设置更新
     schedule(schedule_selector(Tower::shoot), 1.0f, kRepeatForever, 0);
@@ -32,6 +36,10 @@ Sprite* Tower::getTowerSprite()
 
 Vec2 Tower::getPos()
 {
+    if (m_tower==NULL) {
+        log("towerSpriteIsNull,TowerGetPosReturnNull");
+        return Vec2();
+    }
     return m_tower->getPosition();
 }
 
@@ -43,6 +51,7 @@ bool Tower::load(std::string fileName)
         return false;
     }
     addChild(m_tower);
+    m_iTowerRange=200;
     return true;
 }
 
@@ -50,7 +59,7 @@ void Tower::shoot(float delta)
 {
     //角色进入范围并且塔不为菜单中的子类
     for (int i=0; i<RoleManager::getInstance()->getRoleVector().size(); i++) {
-        if(m_tower->getPosition().getDistance(RoleManager::getInstance()->getRoleVector()[i]->getRoleSpritePos())<=200&&m_bIsMenuTower==false)
+        if(m_tower->getPosition().getDistance(RoleManager::getInstance()->getRoleVector()[i]->getRoleSpritePos())<=m_iTowerRange&&m_bIsMenuTower==false)
         {
             BulletManager::getInstance()->addBulletToGame((bulletType)getTowerType(),this->getParent(), 6, getPos(),RoleManager::getInstance()->getRoleVector()[i]);
             return;
@@ -79,4 +88,14 @@ void Tower::setIsMenuTower(bool is)
 bool Tower::getIsMenuTower()
 {
     return m_bIsMenuTower;
+}
+
+
+void Tower::setTowerRange(int iTowerRange)
+{
+    m_iTowerRange=iTowerRange;
+}
+int Tower::getTowerRange()
+{
+    return m_iTowerRange;
 }

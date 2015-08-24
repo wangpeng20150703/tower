@@ -37,8 +37,15 @@ private:
     int m_iRoleType;//角色类型、ini读入、角色创建时使用
     char m_cStartDirection;
     Vec2 m_vRoleEndPos;
+    Label* m_scoreLabel;
+    int m_iScore;
     
 public:
+    int getScroe();
+    void showScore(int score);
+    
+    void towerAction(Ref* obj);
+    
     static cocos2d::Scene* createScene();
     
     virtual void onExit();

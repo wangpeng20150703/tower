@@ -20,11 +20,10 @@ public:
     virtual bool init() override;
     virtual void notificationHandler(Ref* pSender) override;
     
-    void traversal(Node* node, std::string name, std::string touchName);
-    
     CREATE_FUNC(Start);
     
-private:};
+private:
+};
 
 
 #endif /* defined(__tower__start__) */

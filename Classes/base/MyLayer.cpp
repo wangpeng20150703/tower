@@ -24,6 +24,12 @@ void MyLayer::onExit()
 void MyLayer::loadCsb(const std::string& filename)
 {
     auto rootNode = CSLoader::createNode(filename);
+    
+    if (NULL==rootNode)
+    {
+        log("loadCsbError");
+        return;
+    }
     addChild(rootNode, 0, filename);
 
     traversal(rootNode);

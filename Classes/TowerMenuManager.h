@@ -19,11 +19,19 @@ class TowerMenuManager
 private:
     static TowerMenuManager* m_pInstance;
     TowerMenu* m_towerMenu;
-    
+
+public:
+    TowerMenuManager();
+    ~TowerMenuManager();
+
 public:
     TowerMenu* getTowerMenu();
     void release();
     static TowerMenuManager* getInstance();
-    bool addNewTowerMenuToGame(cocos2d::Node* node, int zOrder, Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 mapOffset);
+    bool addNewTowerMenuToGame(cocos2d::Node* node,
+                               int zOrder,
+                               Vec2 v,
+                               cocos2d::experimental::TMXTiledMap* pMap,
+                               Vec2 mapOffset);
 };
 #endif /* defined(__tower__TowerMenuManager__) */

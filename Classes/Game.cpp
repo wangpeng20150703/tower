@@ -7,12 +7,13 @@
 //
 
 #include "Game.h"
-#include "UI.h"
 #include "SimpleAudioEngine.h"
 
 #include "NextGame.h"
 #include "GameOver.h"
 #include "MenuScene.h"
+
+#include "TowerAction.h"
 
 using namespace CocosDenshion;
 
@@ -70,6 +71,9 @@ bool Game::init()
     
     //背景音乐加载
     SimpleAudioEngine::getInstance()->preloadBackgroundMusic("sounds/background.wav");
+    
+    NotificationCenter::getInstance()->addObserver(
+                                                   this, CC_CALLFUNCO_SELECTOR(Game::towerAction), "towerAction", nullptr);
 
     return true;
 }
@@ -88,6 +92,7 @@ void Game::onExit()
     Layer::onExit();
     release();
     NotificationCenter::getInstance()->removeObserver(this, "back");
+    NotificationCenter::getInstance()->removeObserver(this, "towerAction");
 }
 
 void Game::back(Ref* obj)
@@ -164,6 +169,7 @@ void Game::readData(int game)
         //角色终点
         fscanf(pf, "%f", &m_vRoleEndPos.x);
         fscanf(pf, "%f", &m_vRoleEndPos.y);
+        fscanf(pf, "%d", &m_iScore);
     } while (game != m_iGame);
 
     fclose(pf);
@@ -176,6 +182,8 @@ void Game::readData(int game)
     m_map->loadMapFile(fileName);
     addChild(m_map, 1);
 
+    showScore(m_iScore);
+    
     scheduleUpdate();
     
     schedule(schedule_selector(Game::makeRole), m_fIntertal, m_iCount - 1, 0);
@@ -228,3 +236,36 @@ void Game::setCurrntGame(int game)
 {
     m_iCurrntGame=game;
 }
+
+
+void Game::towerAction(Ref* obj)
+{
+    TowerAction* layer=TowerAction::create();
+    if (layer==NULL) {
+        CCLOG("towerActionCreateError,GameTowerActionReturn");
+        return;
+    }
+    layer->setTower((Tower*)obj);
+    addChild(layer,2);
+    layer->setPosition(Vec2(((Tower*)obj)->getPos().x-80,((Tower*)obj)->getPos().y-20));
+}
+
+void Game::showScore(int score)
+{
+    m_iScore=score;
+    char c[8];
+    sprintf(c, "%d",score);
+    if (m_scoreLabel) {
+        m_scoreLabel->removeFromParentAndCleanup(true);
+    }
+    auto s = Director::getInstance()->getWinSize();
+    m_scoreLabel = Label::createWithBMFont("fonts/bitmapFontChinese.fnt", c);
+    m_scoreLabel->setPosition(Vec2(150,s.height-30));
+    this->addChild(m_scoreLabel,4);
+}
+
+int Game::getScroe()
+{
+    return m_iScore;
+}
+

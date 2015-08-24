@@ -25,7 +25,7 @@ bool Role::load(std::string fileName)
 {
     m_pTexture = Director::getInstance()->getTextureCache()->addImage(fileName);
     if (!m_pTexture) {
-        log("role::load ERROR");
+        log("roleAddImageError,roleLoadError");
         return false;
     }
     return true;
@@ -43,6 +43,11 @@ void Role::setAction(Vec2 v)
     auto frame1 = SpriteFrame::createWithTexture(m_pTexture, Rect(32 * 1, 48 * m_dirCurrntDirection, 32, 48));
     auto frame2 = SpriteFrame::createWithTexture(m_pTexture, Rect(32 * 2, 48 * m_dirCurrntDirection, 32, 48));
     auto frame3 = SpriteFrame::createWithTexture(m_pTexture, Rect(32 * 3, 48 * m_dirCurrntDirection, 32, 48));
+
+    if (!frame0 && !frame1 && !frame2 && !frame3) {
+        log("createWithTextureError,RoleSetActionReturn");
+        return;
+    }
 
     m_sprCurrntDirection = Sprite::createWithSpriteFrame(frame0);
 
@@ -69,6 +74,7 @@ void Role::setAction(Vec2 v)
 void Role::update(float delta)
 {
     if (m_sprCurrntDirection == NULL) {
+        log("roleCurrntDirectionSpriteIsNull,RoleUpdateReturn");
         return;
     }
     float fX = (getPosition().x - m_vMapPos.x) / m_fTileWidth;
@@ -129,6 +135,10 @@ void Role::update(float delta)
         } break;
     }
     //设置血条图片位置
+    if (m_sprRoleLife == NULL) {
+        log("roleLifeSpriteIsError,RoleUpdateReturn");
+        return;
+    }
     m_sprRoleLife->setPosition(
         Vec2(m_sprCurrntDirection->getPosition().x,
              m_sprCurrntDirection->getPosition().y + m_sprCurrntDirection->getTextureRect().size.height * 2.5));
@@ -136,19 +146,23 @@ void Role::update(float delta)
 
 int Role::getMapDate(cocos2d::Vec2 v)
 {
+    if (m_ppMapData == NULL) {
+        log("mapDataIsNull,ReturnNull");
+        return NULL;
+    }
     return m_ppMapData[(int)v.x][(int)v.y];
 }
 
 //设置开始位置前需要调用setRoleTotalLofe(int life)、setRoleCurrntLofe(int life)设置角色当前血量以及总血量
 void Role::setStartPosition(cocos2d::Vec2 vPos)
 {
-    vPos.x=(vPos.x+0.5)*m_fTileWidth;
-    vPos.y=(vPos.y+0.4)*m_fTileHeight;
-    
+    vPos.x = (vPos.x + 0.5) * m_fTileWidth;
+    vPos.y = (vPos.y + 0.4) * m_fTileHeight;
+
     vPos = vPos + m_vMapPos;
-    m_sprCurrntDirection->setPosition(vPos);
     //设置更新
     if (m_sprCurrntDirection) {
+        m_sprCurrntDirection->setPosition(vPos);
         scheduleUpdate();
 
         //初始化设置默认的角色总血量、当前血量
@@ -168,6 +182,10 @@ cocos2d::Vec2 Role::getPosition()
 
 void Role::setPosition(cocos2d::Vec2 pos)
 {
+    if (m_sprCurrntDirection == NULL) {
+        log("roleCurrntDirectionIsNull,RoleSetPositionReturn");
+        return;
+    }
     m_sprCurrntDirection->cocos2d::Node::setPosition(pos);
 }
 
@@ -190,7 +208,7 @@ void Role::setCurrntDirection(char dir)
 
     setAction(v);
 
-    if (m_sprCurrntDirection->getPosition() == Vec2(0, 0)) {
+    if (m_sprCurrntDirection && m_sprCurrntDirection->getPosition() == Vec2(0, 0)) {
         m_sprCurrntDirection->setPosition(v);
         if (m_sprRoleLife) {
             m_sprCurrntDirection->addChild(m_sprRoleLife, 0);
@@ -205,6 +223,10 @@ void Role::getMapPos(cocos2d::Vec2 pos)
 
 void Role::setMap(cocos2d::experimental::TMXTiledMap* map)
 {
+    if (map == NULL) {
+        log("mapIsNull,RoleSetMapReturn");
+        return;
+    }
     m_iMapHeight = map->getMapSize().height;
     auto layer = map->getLayer("layer0");
     m_fTileWidth = map->getTileSize().width;
@@ -224,6 +246,10 @@ void Role::setMap(cocos2d::experimental::TMXTiledMap* map)
 
 Vec2 Role::getRoleSpritePos()
 {
+    if (m_sprCurrntDirection == NULL) {
+        log("roleCurrntDirectionSpriteIsNull,RoleGetRoleSpritePosReturn");
+        return Vec2();
+    }
     return m_sprCurrntDirection->getPosition();
 }
 
@@ -231,6 +257,10 @@ Rect Role::getCollideRect()
 {
     Vec2 origin;
     Vec2 size;
+    if (m_sprCurrntDirection == NULL) {
+        log("roleCurrntDirectionSpriteIsNull,RoleGetCollodeRectReturnNull");
+        return Rect(0, 0, 0, 0);
+    }
     origin = m_sprCurrntDirection->getPosition();
     size = m_sprCurrntDirection->getTextureRect().size * 2.5f;
     return Rect(origin.x - size.x / 2, origin.y, size.x, size.y);
@@ -238,6 +268,10 @@ Rect Role::getCollideRect()
 
 Vec2 Role::getCollidePoint()
 {
+    if (m_sprCurrntDirection == NULL) {
+        log("roleCurrntDirectionSpriteIsNull,RoleGetCollodeRectReturnNull");
+        return Vec2();
+    }
     Vec2 point = m_sprCurrntDirection->getPosition();
     point.y += m_sprCurrntDirection->getTextureRect().size.height * 0.4f;
     return point;

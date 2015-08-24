@@ -42,12 +42,12 @@ void TowerMenu::setPos(Vec2 v, cocos2d::experimental::TMXTiledMap* pMap, Vec2 ma
     m_vTileCenter.y = v.y + mapOffset.y;
 
     //添加菜单中种类
-    auto towerRed=Tower::create();
+    auto towerRed = Tower::create();
     towerRed->setTowerType(RED);
     towerRed->load("tower1.png");
     towerRed->setIsMenuTower(true);
     m_vTower.push_back(towerRed);
-    auto towerYellow=Tower::create();
+    auto towerYellow = Tower::create();
     towerYellow->setTowerType(YELLOW);
     towerYellow->load("tower2.png");
     towerYellow->setIsMenuTower(true);
@@ -71,12 +71,12 @@ void TowerMenu::addTower(Ref* obj)
     if (obj == NULL) {
         return;
     }
-    
-    if(!TowerManager::getInstance()->addNewTowerToGame(((Tower*)obj)->getTowerType(), getParent(), 1, m_vTileCenter))
-    {
+
+    if (!TowerManager::getInstance()->addNewTowerToGame(((Tower*)obj)->getTowerType(), getParent(), 1, m_vTileCenter)) {
         log("TowerMenu::addTower ERROR");
         return;
     }
+    ////////
     TowerMenuManager::getInstance()->release();
 }
 

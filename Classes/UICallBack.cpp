@@ -12,7 +12,6 @@
 #include "cocostudio/CCObjectExtensionData.h"
 
 #include "SimpleAudioEngine.h"
-#include "UI.h"
 #include "Game.h"
 
 USING_NS_CC;

@@ -18,7 +18,7 @@ bool Bullet::load(std::string fileName)
 {
     m_bulletSprite = Sprite::create(fileName);
     if (NULL == m_bulletSprite) {
-        log("bulletSpriteCreatError");
+        log("bulletSpriteCreatError,BulletLoadError");
         return false;
     }
     addChild(m_bulletSprite);
@@ -27,6 +27,10 @@ bool Bullet::load(std::string fileName)
 
 void Bullet::update(float delta)
 {
+    if (m_bulletSprite==NULL) {
+        log("bulletLoadError,BulletUpdateReturnNull");
+        return;
+    }
     if(m_roleAim!=NULL)
     {
         m_vDirection.set(m_bulletSprite->getPosition(), m_roleAim->getCollidePoint());
@@ -40,23 +44,38 @@ void Bullet::update(float delta)
 void Bullet::setRole(Role*& role)
 {
     m_roleAim = role;
+    if (m_roleAim==NULL) {
+        log("bulletSetRoleIsNull");
+        return;
+    }
     scheduleUpdate();
 }
 
 void Bullet::setPos(Vec2 v)
 {
+    if (m_bulletSprite==NULL) {
+        log("bulletSpriteIsNull,SetPosIsError");
+        return;
+    }
     m_bulletSprite->setPosition(v);
 }
 
 
 Vec2 Bullet::getPos()
 {
+    if (m_bulletSprite==NULL) {
+        log("bulletSpriteIsNull,GetPosIsNull");
+        return NULL;
+    }
     return m_bulletSprite->getPosition();
 }
 
 
 Role*& Bullet::getRole()
 {
+    if (m_roleAim==NULL) {
+        log("roleAimIsNull,GetRoleIsNull");
+    }
     return  m_roleAim;
 }
 

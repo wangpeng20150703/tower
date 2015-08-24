@@ -14,13 +14,14 @@
 
 using namespace std;
 
-class TowerManager
+class TowerManager:public Node
 {
 private:
     vector<Tower*> m_vTower;
     static TowerManager* m_pInstance;
     TowerManager();
 public:
+    void listen(Tower*& tower);
     void release();
     vector<Tower*>& getTowerVector();
     static TowerManager* getInstance();

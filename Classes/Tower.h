@@ -22,10 +22,13 @@ enum TowerType { RED, YELLOW };
 class Tower : public cocos2d::Node
 {
 protected:
+    int m_iTowerRange;
     Sprite* m_tower;
     TowerType m_eTowerType;
     bool m_bIsMenuTower;
 public:
+    int getTowerRange();
+    void setTowerRange(int iTowerRange);
     //设置、获得是否为菜单中的子类
     void setIsMenuTower(bool is);
     bool getIsMenuTower();
