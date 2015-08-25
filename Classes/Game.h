@@ -18,6 +18,7 @@
 
 #include "cocostudio/CocoStudio.h"
 #include "UICallBackReader.h"
+#include "Score.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -25,6 +26,7 @@ using namespace cocos2d;
 class Game : public Layer
 {
 private:
+    Score* m_scoreLayer;
     static int m_iCurrntGame;
     
     bool m_bIsTowerMenuExist;//塔菜单是否存在
@@ -37,13 +39,12 @@ private:
     int m_iRoleType;//角色类型、ini读入、角色创建时使用
     char m_cStartDirection;
     Vec2 m_vRoleEndPos;
-    Label* m_scoreLabel;
-    int m_iScore;
+    static int m_iScore;
     
 public:
-    int getScroe();
-    void showScore(int score);
-    
+    void updateScore(Ref* ref);
+    static void setScore(int iScore);
+    static int getScore();
     void towerAction(Ref* obj);
     
     static cocos2d::Scene* createScene();

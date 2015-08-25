@@ -19,20 +19,21 @@ using namespace CocosDenshion;
 
 USING_NS_CC;
 int Game::m_iCurrntGame = 0;
+int Game::m_iScore = 0;
 // on "init" you need to initialize your instance
 
 cocos2d::Scene* Game::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = cocos2d::Scene::create();
-    
+
     // 'layer' is an autorelease object
     auto layer = Game::create();
-    
+
     layer->readData(m_iCurrntGame);
     // add layer as a child to scene
     scene->addChild(layer);
-    
+
     // return the scene
     return scene;
 }
@@ -68,12 +69,12 @@ bool Game::init()
     listener->onTouchMoved = CC_CALLBACK_2(Game::onTouchMoved, this);
     listener->onTouchEnded = CC_CALLBACK_2(Game::onTouchEnded, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-    
+
     //背景音乐加载
     SimpleAudioEngine::getInstance()->preloadBackgroundMusic("sounds/background.wav");
-    
-    NotificationCenter::getInstance()->addObserver(
-                                                   this, CC_CALLFUNCO_SELECTOR(Game::towerAction), "towerAction", nullptr);
+
+    NotificationCenter::getInstance()->addObserver(this, CC_CALLFUNCO_SELECTOR(Game::towerAction), "towerAction", nullptr);
+    NotificationCenter::getInstance()->addObserver(this, CC_CALLFUNCO_SELECTOR(Game::updateScore), "scoreUpdate", nullptr);
 
     return true;
 }
@@ -82,9 +83,8 @@ void Game::menuCloseCallback(Ref* pSender)
 {
     Layer::onExit();
     auto layer = MenuScene::create();
-    Director::getInstance()->getRunningScene()->addChild(layer,1);
-    NotificationCenter::getInstance()->addObserver(
-                                                   this, CC_CALLFUNCO_SELECTOR(Game::back), "back", nullptr);
+    Director::getInstance()->getRunningScene()->addChild(layer, 1);
+    NotificationCenter::getInstance()->addObserver(this, CC_CALLFUNCO_SELECTOR(Game::back), "back", nullptr);
 }
 
 void Game::onExit()
@@ -93,6 +93,7 @@ void Game::onExit()
     release();
     NotificationCenter::getInstance()->removeObserver(this, "back");
     NotificationCenter::getInstance()->removeObserver(this, "towerAction");
+    NotificationCenter::getInstance()->removeObserver(this, "scoreUpdate");
 }
 
 void Game::back(Ref* obj)
@@ -110,22 +111,20 @@ void Game::update(float delta)
     BulletManager::getInstance()->update();
     RoleManager::getInstance()->update();
 
-    //过关
-    if (RoleManager::getInstance()->getDeadRole() == m_iCount) {
-        release();
-        
-        auto layer=NextGame::create();
-        Director::getInstance()->getRunningScene()->addChild(layer,1);
-        
-    }
     //失败
-    else if (RoleManager::getInstance()->getSuccessRole() == 2) {
-        
+    if (RoleManager::getInstance()->getSuccessRole() == 2) {
         release();
-  
-        auto layer=GameOver::create();
-        Director::getInstance()->getRunningScene()->addChild(layer,1);
-     
+
+        auto layer = GameOver::create();
+        Director::getInstance()->getRunningScene()->addChild(layer, 1);
+
+    }
+    //过关
+    else if (RoleManager::getInstance()->getDeadRole() + RoleManager::getInstance()->getSuccessRole() == m_iCount) {
+        release();
+
+        auto layer = NextGame::create();
+        Director::getInstance()->getRunningScene()->addChild(layer, 1);
     }
 }
 
@@ -182,13 +181,15 @@ void Game::readData(int game)
     m_map->loadMapFile(fileName);
     addChild(m_map, 1);
 
-    showScore(m_iScore);
-    
     scheduleUpdate();
-    
+
     schedule(schedule_selector(Game::makeRole), m_fIntertal, m_iCount - 1, 0);
-    
-    SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/background.wav", true); //播放背景音乐
+
+    SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/background.wav", true);  //播放背景音乐
+
+    m_scoreLayer = Score::create();
+    updateScore(NULL);
+    addChild(m_scoreLayer, 2);
 }
 
 void Game::onTouchEnded(Touch* touch, Event* event)
@@ -217,7 +218,6 @@ void Game::onTouchMoved(Touch* touch, Event* event)
 {
 }
 
-
 void Game::release()
 {
     BulletManager::getInstance()->release();
@@ -227,45 +227,38 @@ void Game::release()
     unscheduleUpdate();
 }
 
-
 int Game::getCurrntGame()
 {
     return m_iCurrntGame;
 }
 void Game::setCurrntGame(int game)
 {
-    m_iCurrntGame=game;
+    m_iCurrntGame = game;
 }
-
 
 void Game::towerAction(Ref* obj)
 {
-    TowerAction* layer=TowerAction::create();
-    if (layer==NULL) {
+    TowerAction* layer = TowerAction::create();
+    if (layer == NULL) {
         CCLOG("towerActionCreateError,GameTowerActionReturn");
         return;
     }
     layer->setTower((Tower*)obj);
-    addChild(layer,2);
-    layer->setPosition(Vec2(((Tower*)obj)->getPos().x-80,((Tower*)obj)->getPos().y-20));
+    addChild(layer, 2);
+    layer->setPosition(Vec2(((Tower*)obj)->getPos().x - 80, ((Tower*)obj)->getPos().y - 20));
 }
 
-void Game::showScore(int score)
+void Game::setScore(int iScore)
 {
-    m_iScore=score;
-    char c[8];
-    sprintf(c, "%d",score);
-    if (m_scoreLabel) {
-        m_scoreLabel->removeFromParentAndCleanup(true);
-    }
-    auto s = Director::getInstance()->getWinSize();
-    m_scoreLabel = Label::createWithBMFont("fonts/bitmapFontChinese.fnt", c);
-    m_scoreLabel->setPosition(Vec2(150,s.height-30));
-    this->addChild(m_scoreLabel,4);
+    m_iScore = iScore;
+    NotificationCenter::getInstance()->postNotification("scoreUpdate");
 }
-
-int Game::getScroe()
+int Game::getScore()
 {
     return m_iScore;
 }
 
+void Game::updateScore(Ref* ref)
+{
+    m_scoreLayer->setScore(m_iScore);
+}

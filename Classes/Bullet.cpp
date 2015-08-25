@@ -73,9 +73,6 @@ Vec2 Bullet::getPos()
 
 Role*& Bullet::getRole()
 {
-    if (m_roleAim==NULL) {
-        log("roleAimIsNull,GetRoleIsNull");
-    }
     return  m_roleAim;
 }
 

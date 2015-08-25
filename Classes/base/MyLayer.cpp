@@ -23,16 +23,16 @@ void MyLayer::onExit()
 
 void MyLayer::loadCsb(const std::string& filename)
 {
-    auto rootNode = CSLoader::createNode(filename);
+    m_rootNode = CSLoader::createNode(filename);
     
-    if (NULL==rootNode)
+    if (NULL==m_rootNode)
     {
         log("loadCsbError");
         return;
     }
-    addChild(rootNode, 0, filename);
+    addChild(m_rootNode, 0, filename);
 
-    traversal(rootNode);
+    traversal(m_rootNode);
 }
 
 void MyLayer::traversal(Node* node)
@@ -48,4 +48,13 @@ void MyLayer::traversal(Node* node)
             traversal(child);
         }
     }
+}
+
+Node* MyLayer::getRootNode()
+{
+    if (m_rootNode==NULL) {
+        CCLOG("rootNodeIdNull,MyLayerGetRootNodeReturnNull");
+        return NULL;
+    }
+    return m_rootNode;
 }

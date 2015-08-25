@@ -76,6 +76,8 @@
 		F7CBF2FA1B82DD7200599F64 /* NextGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7CBF2F81B82DD7200599F64 /* NextGame.cpp */; };
 		F7CBF2FD1B82E12200599F64 /* GameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7CBF2FB1B82E12200599F64 /* GameOver.cpp */; };
 		F7CBF3001B82E45500599F64 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7CBF2FE1B82E45500599F64 /* MenuScene.cpp */; };
+		F7CC85C71B8C04D8004B2201 /* Score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7CC85C51B8C04D8004B2201 /* Score.cpp */; };
+		F7CC85CB1B8C0ED3004B2201 /* score in Resources */ = {isa = PBXBuildFile; fileRef = F7CC85CA1B8C0ED3004B2201 /* score */; };
 		F7CE4B911B6A2E9D006E3E3C /* game.ini in Resources */ = {isa = PBXBuildFile; fileRef = F7CE4B901B6A2E9D006E3E3C /* game.ini */; };
 		F7CF2DE61B81B74500E150A3 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = F7CF2DE51B81B74500E150A3 /* sounds */; };
 		F7CF2E3B1B81E38500E150A3 /* MyLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7CF2E391B81E38500E150A3 /* MyLayer.cpp */; };
@@ -94,7 +96,6 @@
 		F7D268611B70A27200887AE8 /* TowerMenuManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2685F1B70A27200887AE8 /* TowerMenuManager.cpp */; };
 		F7D331AB1B8AD767000D927B /* towerAction in Resources */ = {isa = PBXBuildFile; fileRef = F7D331AA1B8AD767000D927B /* towerAction */; };
 		F7D331AE1B8AE581000D927B /* TowerAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D331AC1B8AE581000D927B /* TowerAction.cpp */; };
-		F7D331B11B8B1D5D000D927B /* Score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D331AF1B8B1D5D000D927B /* Score.cpp */; };
 		F7D99BDD1B6F60F800DEA015 /* TowerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */; };
 		F7DA0AEE1B748F9D00CCCA1B /* roleData.ini in Resources */ = {isa = PBXBuildFile; fileRef = F7DA0AED1B748F9D00CCCA1B /* roleData.ini */; };
 		F7DA0AF01B74A54E00CCCA1B /* bullet1.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DA0AEF1B74A54E00CCCA1B /* bullet1.png */; };
@@ -215,6 +216,9 @@
 		F7CBF2FC1B82E12200599F64 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
 		F7CBF2FE1B82E45500599F64 /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
 		F7CBF2FF1B82E45500599F64 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		F7CC85C51B8C04D8004B2201 /* Score.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Score.cpp; sourceTree = "<group>"; };
+		F7CC85C61B8C04D8004B2201 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
+		F7CC85CA1B8C0ED3004B2201 /* score */ = {isa = PBXFileReference; lastKnownFileType = folder; path = score; sourceTree = "<group>"; };
 		F7CE4B901B6A2E9D006E3E3C /* game.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game.ini; sourceTree = "<group>"; };
 		F7CF2DE51B81B74500E150A3 /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sounds; sourceTree = "<group>"; };
 		F7CF2E391B81E38500E150A3 /* MyLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyLayer.cpp; sourceTree = "<group>"; };
@@ -240,8 +244,6 @@
 		F7D331AA1B8AD767000D927B /* towerAction */ = {isa = PBXFileReference; lastKnownFileType = folder; path = towerAction; sourceTree = "<group>"; };
 		F7D331AC1B8AE581000D927B /* TowerAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerAction.cpp; sourceTree = "<group>"; };
 		F7D331AD1B8AE581000D927B /* TowerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerAction.h; sourceTree = "<group>"; };
-		F7D331AF1B8B1D5D000D927B /* Score.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Score.cpp; sourceTree = "<group>"; };
-		F7D331B01B8B1D5D000D927B /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
 		F7D99BDB1B6F60F800DEA015 /* TowerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TowerManager.cpp; path = ../TowerManager.cpp; sourceTree = "<group>"; };
 		F7D99BDC1B6F60F800DEA015 /* TowerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TowerManager.h; path = ../TowerManager.h; sourceTree = "<group>"; };
 		F7DA0AED1B748F9D00CCCA1B /* roleData.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = roleData.ini; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				F7D02A3C1B6B194A003445A9 /* tower2.png */,
 				F7C648181B68677600FC54AF /* map0.tmx */,
 				F7DA0AF31B74B89200CCCA1B /* map1.tmx */,
+				F7CC85CA1B8C0ED3004B2201 /* score */,
 				F7D331AA1B8AD767000D927B /* towerAction */,
 				F7D042621B842C5E00423611 /* volume */,
 				F7D0425E1B842A8400423611 /* menu */,
@@ -477,8 +480,8 @@
 				F7C53AC11B8333B6004039D1 /* Volume.h */,
 				F7D331AC1B8AE581000D927B /* TowerAction.cpp */,
 				F7D331AD1B8AE581000D927B /* TowerAction.h */,
-				F7D331AF1B8B1D5D000D927B /* Score.cpp */,
-				F7D331B01B8B1D5D000D927B /* Score.h */,
+				F7CC85C51B8C04D8004B2201 /* Score.cpp */,
+				F7CC85C61B8C04D8004B2201 /* Score.h */,
 			);
 			path = scene;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				F7C6482A1B687E2B00FC54AF /* role0.png in Resources */,
+				F7CC85CB1B8C0ED3004B2201 /* score in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				F7D02A3D1B6B194A003445A9 /* tower1.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
@@ -705,7 +709,7 @@
 				F7D331AE1B8AE581000D927B /* TowerAction.cpp in Sources */,
 				F7CBF2FA1B82DD7200599F64 /* NextGame.cpp in Sources */,
 				F7E0E6CF1B719EA200A4D140 /* BulletManager.cpp in Sources */,
-				F7D331B11B8B1D5D000D927B /* Score.cpp in Sources */,
+				F7CC85C71B8C04D8004B2201 /* Score.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				F7C8A3391B7C84A200CC9830 /* UICallBackReader.cpp in Sources */,
 				F7CF2E3E1B81E68900E150A3 /* Start.cpp in Sources */,

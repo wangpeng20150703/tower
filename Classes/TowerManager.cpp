@@ -30,6 +30,7 @@ bool TowerManager::addNewTowerToGame(TowerType tp,Node* node,int zOrder,Vec2 vPo
     temp->setIsMenuTower(false);
     node->addChild(temp,zOrder);
     m_vTower.push_back(temp);
+    Game::setScore(Game::getScore()-10);
     listen(temp);
     return true;
 }
@@ -73,18 +74,6 @@ void TowerManager::listen(Tower*& tower)
         Rect r = target->getTowerSprite()->getTextureRect();
         
         if (r.containsPoint(locationInNode)) {
-//            switch (target->getTowerType()) {
-//                case RED: {
-//                    auto temp = Tower::create();
-//                    temp->setTowerType(RED);
-//                    NotificationCenter::getInstance()->postNotification("select tower", temp);
-//                } break;
-//                case YELLOW: {
-//                    auto temp = Tower::create();
-//                    temp->setTowerType(YELLOW);
-//                    NotificationCenter::getInstance()->postNotification("select tower", temp);
-//                } break;
-//            }
             NotificationCenter::getInstance()->postNotification("towerAction", target);
             return true;
         }

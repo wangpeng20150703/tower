@@ -2,42 +2,33 @@
 //  Score.cpp
 //  tower
 //
-//  Created by wangpeng on 15/8/24.
+//  Created by wangpeng on 15/8/25.
 //
 //
 
 #include "Score.h"
-#include "Game.h"
-#include "UICallBack.h"
+#include "ui/UIHelper.h"
 
-// on "init" you need to initialize your instance
 bool Score::init()
 {
     if (!MyLayer::init()) {
         return false;
     }
     
-    this->loadCsb("start/startLayer.csb");
+    this->loadCsb("score/Layer.csb");
+    
+    m_scoreWidge = (TextBMFont*)Helper::seekWidgetByName((Widget*)getRootNode(), "BitmapFontLabel_score");
     
     return true;
 }
 
-void Score::notificationHandler(Ref* pSender)
+void Score::setScore(int iScore)
 {
-    Node* node = dynamic_cast<Node*>(pSender);
-    auto name = node->getName();
-    UICallback callback = UICallBack::getTouchUICallback(pSender);
-    if (callback.enable) {
-        if (callback.name.compare("onTouchLogin") == 0) {
-            Director::getInstance()->replaceScene(Game::createScene());
-        } else if (callback.name.compare("onTouchLogOut") == 0) {
-            Director::getInstance()->getRunningScene()->removeAllChildren();
-            Director::getInstance()->end();
-            
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-            exit(0);
-#endif
-        }
+    char temp[16];
+    sprintf(temp,"SCORE:%d", iScore);
+    if (m_scoreWidge==NULL) {
+        CCLOG("scoreWidgeIsNull,ScoreSetScoreReturn");
         return;
     }
+    m_scoreWidge->setString(temp);
 }

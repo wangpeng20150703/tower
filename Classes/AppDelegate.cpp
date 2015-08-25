@@ -1,7 +1,7 @@
 #include "AppDelegate.h"
 #include "Start.h"
 #include "cocostudio/CocoStudio.h"
-
+#include "Score.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate()
@@ -57,9 +57,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     // create a scene. it's an autorelease object
 
         auto scene = Scene::create();
-        //auto layer=UI::create();
         auto layer=Start::createScene();
-        scene->addChild(layer);
+        scene->addChild(layer,3);
         // run
         director->runWithScene(scene);
 

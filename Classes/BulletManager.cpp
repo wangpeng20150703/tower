@@ -7,6 +7,7 @@
 //
 
 #include "BulletManager.h"
+#include "Game.h"
 
 BulletManager* BulletManager::m_pInstance = NULL;
 
@@ -77,6 +78,7 @@ void BulletManager::update()
 
                             //角色死亡数加一
                             RoleManager::getInstance()->deadRoleAddOne();
+                            Game::setScore(Game::getScore()+10);
 
                             //遍历子弹数组
                             for (std::vector<Bullet*>::iterator itB = m_vBulletVector.begin();

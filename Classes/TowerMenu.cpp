@@ -76,7 +76,7 @@ void TowerMenu::addTower(Ref* obj)
         log("TowerMenu::addTower ERROR");
         return;
     }
-    ////////
+    
     TowerMenuManager::getInstance()->release();
 }
 

@@ -42,7 +42,6 @@ void UICallBack::onTouch(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
         case Widget::TouchEventType::ENDED: {
             UICallback callback = UICallBack::getTouchUICallback(object);
             if (callback.enable) {
-                CCLOG("callback name : %s", callback.name.c_str());
                 NotificationCenter::getInstance()->postNotification(callback.name,object);
             }
             break;

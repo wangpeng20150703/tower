@@ -10,6 +10,7 @@ using namespace cocos2d::ui;
 class MyLayer : public cocos2d::Layer
 {
 public:
+    Node* getRootNode();
     virtual bool init() override;
     virtual void onExit() override;
 
@@ -17,6 +18,7 @@ public:
     void loadCsb(const std::string& filename);
 
 private:
+    Node* m_rootNode;
     void traversal(Node* node);
 };
 
